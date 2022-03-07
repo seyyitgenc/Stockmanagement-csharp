@@ -387,6 +387,7 @@ namespace stockmanagement
             txt_product_worth.Size = new Size(200, 30);
             txt_product_worth.Enabled = false;
 
+            //somethings changed
             cmbox_product_type.Location = new Point(400, 250);
             cmbox_product_category.Location = new Point(400, 210);
 
