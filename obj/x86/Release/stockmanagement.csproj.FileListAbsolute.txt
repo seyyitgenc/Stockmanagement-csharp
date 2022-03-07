@@ -1,0 +1,4 @@
+/home/seyyitgenc/Projects/stockmanagement/stockmanagement/bin/Release/stockmanagement.exe
+/home/seyyitgenc/Projects/stockmanagement/stockmanagement/obj/x86/Release/stockmanagement.csproj.CoreCompileInputs.cache
+/home/seyyitgenc/Projects/stockmanagement/stockmanagement/obj/x86/Release/stockmanagement.exe
+/home/seyyitgenc/Projects/stockmanagement/stockmanagement/obj/x86/Release/stockmanagement.csprojAssemblyReference.cache

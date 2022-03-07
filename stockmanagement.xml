@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <tbl_user>
+    <!-- user table-->
+    <user>
+      <user_id>1</user_id>
+      <user_username>admin</user_username>
+      <user_password>admin</user_password>
+      <user_role>admin</user_role>
+      <user_name>seyyit</user_name>
+      <user_surname>genc</user_surname>
+      <user_image url="userm.png"></user_image>
+    </user>
+    <user>
+      <user_id>2</user_id>
+      <user_username>seyyit</user_username>
+      <user_password>31</user_password>
+      <user_role>admin</user_role>
+      <user_name>seyyit</user_name>
+      <user_surname>genc</user_surname>
+      <user_image url="userm.png"></user_image>
+    </user>
+    <user>
+      <user_id>3</user_id>
+      <user_username>hamit</user_username>
+      <user_password>31</user_password>
+      <user_role>admin</user_role>
+      <user_name>abdulhamit</user_name>
+      <user_surname>zort</user_surname>
+      <user_image url="icon2.png"></user_image>
+    </user>
+    <user>
+      <user_id>4</user_id>
+      <user_username>test</user_username>
+      <user_password>test</user_password>
+      <user_role>admin</user_role>
+      <user_name>seyyit</user_name>
+      <user_surname>genc</user_surname>
+      <user_image url=""></user_image>
+    </user>
+  </tbl_user>
+  <!-- product table-->
+  <tbl_product>
+    <product>
+      <product_id>1</product_id>
+      <product_name>yeni</product_name>
+      <product_category>Temizlik Malzemesi</product_category>
+      <product_type>Kilogram</product_type>
+      <product_quantity>321</product_quantity>
+      <product_price>32</product_price>
+      <product_available type="1" />
+    </product>
+    <product>
+      <product_id>2</product_id>
+      <product_name>Hamit</product_name>
+      <product_category>Temizlik Malzemesi</product_category>
+      <product_type>Kilogram</product_type>
+      <product_quantity>0</product_quantity>
+      <product_price>21</product_price>
+      <product_available type="0"></product_available>
+    </product>
+    <product>
+      <product_id></product_id>
+      <product_name></product_name>
+      <product_category></product_category>
+      <product_type></product_type>
+      <product_quantity></product_quantity>
+      <product_price></product_price>
+      <product_available></product_available>
+    </product>
+  </tbl_product>
+  <!-- category table-->
+  <tbl_category>
+    <category>
+      <category_id>1</category_id>
+      <category_name>Meyve</category_name>
+    </category>
+    <category>
+      <category_id>2</category_id>
+      <category_name>Sebze</category_name>
+    </category>
+    <category>
+      <category_id>3</category_id>
+      <category_name>Temizlik Malzemesi</category_name>
+    </category>
+    <category>
+      <category_id>4</category_id>
+      <category_name>Sos</category_name>
+    </category>
+    <category>
+      <category_id>5</category_id>
+      <category_name>Plastik</category_name>
+    </category>
+    <category>
+      <category_id>6</category_id>
+      <category_name>Bakliyat</category_name>
+    </category>
+  </tbl_category>
+  <!-- type table-->
+  <tbl_type>
+    <type>
+      <type_id>1</type_id>
+      <type_name>Kilogram</type_name>
+    </type>
+    <type>
+      <type_id>2</type_id>
+      <type_name>Litre</type_name>
+    </type>
+    <type>
+      <type_id>3</type_id>
+      <type_name>Adet</type_name>
+    </type>
+    <type>
+      <type_id>4</type_id>
+      <type_name>Paket</type_name>
+    </type>
+  </tbl_type>
+  <!-- customer table-->
+  <tbl_customer>
+    <customer>
+      <customer_id>1</customer_id>
+      <customer_name>Bektaş Genç</customer_name>
+      <customer_phonenumber>0555 555 55 55</customer_phonenumber>
+      <customer_address>födsmfdsamfadsfdsfk3211</customer_address>
+      <customer_loan>50</customer_loan>
+      <customer_price price="25"></customer_price>
+    </customer>
+    <customer>
+      <customer_id>2</customer_id>
+      <customer_name>AbdülHamit Çelik</customer_name>
+      <customer_phonenumber>0555 555 55 55</customer_phonenumber>
+      <customer_price price="33"></customer_price>
+      <customer_address>karabük kılavuzlar mahallesi arslan ap no80/10rtest</customer_address>
+      <customer_loan>165</customer_loan>
+    </customer>
+    <customer>
+      <customer_id></customer_id>
+      <customer_name></customer_name>
+      <customer_phonenumber></customer_phonenumber>
+      <customer_address></customer_address>
+      <customer_loan></customer_loan>
+      <customer_price price=""></customer_price>
+    </customer>
+  </tbl_customer>
+  <!-- customer meal table-->
+  <product>
+    <product_id></product_id>
+    <product_name></product_name>
+    <product_category></product_category>
+    <product_type></product_type>
+    <product_price></product_price>
+    <product_quantity></product_quantity>
+    <product_available />
+  </product>
+  <product>
+    <product_id></product_id>
+    <product_name></product_name>
+    <product_category></product_category>
+    <product_type></product_type>
+    <product_price></product_price>
+    <product_quantity></product_quantity>
+    <product_available />
+  </product>
+</root>
