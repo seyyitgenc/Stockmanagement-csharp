@@ -48,6 +48,7 @@
     <Compile Include="CustomControls\customcombobox.cs" />
     <Compile Include="CustomControls\custompicturebox.cs" />
     <Compile Include="MealAddForm.cs" />
+    <Compile Include="GeneralFormDesigner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="images\bg.jpg" />

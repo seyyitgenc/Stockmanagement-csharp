@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="GeneralForm.cs">
     <Files>
-      <File FileName="GeneralForm.cs" Line="1119" Column="46" />
-      <File FileName="stockmanagement.xml" Line="1" Column="1" />
+      <File FileName="GeneralForm.cs" Line="771" Column="14" />
+      <File FileName="Designer.cs" Line="93" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
