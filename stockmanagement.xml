@@ -60,13 +60,13 @@
       <product_available type="0"></product_available>
     </product>
     <product>
-      <product_id></product_id>
-      <product_name></product_name>
-      <product_category></product_category>
-      <product_type></product_type>
-      <product_quantity></product_quantity>
-      <product_price></product_price>
-      <product_available></product_available>
+      <product_id>3</product_id>
+      <product_name>product</product_name>
+      <product_category>Meyve</product_category>
+      <product_type>Litre</product_type>
+      <product_quantity>32</product_quantity>
+      <product_price>32</product_price>
+      <product_available type="1"></product_available>
     </product>
   </tbl_product>
   <!-- category table-->
@@ -115,34 +115,6 @@
       <type_name>Paket</type_name>
     </type>
   </tbl_type>
-  <!-- customer table-->
-  <tbl_customer>
-    <customer>
-      <customer_id>1</customer_id>
-      <customer_name>Bektaş Genç</customer_name>
-      <customer_phonenumber>0555 555 55 55</customer_phonenumber>
-      <customer_address>födsmfdsamfadsfdsfk3211</customer_address>
-      <customer_loan>50</customer_loan>
-      <customer_price price="25"></customer_price>
-    </customer>
-    <customer>
-      <customer_id>2</customer_id>
-      <customer_name>AbdülHamit Çelik</customer_name>
-      <customer_phonenumber>0555 555 55 55</customer_phonenumber>
-      <customer_price price="33"></customer_price>
-      <customer_address>karabük kılavuzlar mahallesi arslan ap no80/10rtest</customer_address>
-      <customer_loan>165</customer_loan>
-    </customer>
-    <customer>
-      <customer_id></customer_id>
-      <customer_name></customer_name>
-      <customer_phonenumber></customer_phonenumber>
-      <customer_address></customer_address>
-      <customer_loan></customer_loan>
-      <customer_price price=""></customer_price>
-    </customer>
-  </tbl_customer>
-  <!-- customer meal table-->
   <product>
     <product_id></product_id>
     <product_name></product_name>
@@ -161,4 +133,40 @@
     <product_quantity></product_quantity>
     <product_available />
   </product>
+  <customer>
+    <customer_id></customer_id>
+    <customer_name></customer_name>
+    <customer_phonenumber></customer_phonenumber>
+    <customer_address></customer_address>
+    <customer_loan></customer_loan>
+    <customer_price price="" />
+  </customer>
+  <customer>
+    <customer_id></customer_id>
+    <customer_name></customer_name>
+    <customer_phonenumber></customer_phonenumber>
+    <customer_address></customer_address>
+    <customer_loan></customer_loan>
+    <customer_price price="" />
+  </customer>
+  <customer>
+    <customer_id></customer_id>
+    <customer_name></customer_name>
+    <customer_phonenumber></customer_phonenumber>
+    <customer_address></customer_address>
+    <customer_loan></customer_loan>
+    <customer_price price="" />
+  </customer>
+  <meal>
+    <customer_id></customer_id>
+    <meal_id></meal_id>
+    <meal_quantity></meal_quantity>
+    <meal_date date="" />
+  </meal>
+  <meal>
+    <customer_id></customer_id>
+    <meal_id></meal_id>
+    <meal_quantity></meal_quantity>
+    <meal_date date="" />
+  </meal>
 </root>

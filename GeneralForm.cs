@@ -753,6 +753,8 @@ namespace stockmanagement
             customer_delete_btn.Click += Customer_Delete_Btn_Click;
             customer_add_btn.Click += Customer_Add_Btn_Click;
 
+            txt_customer_price.KeyPress += Txt_Product_KeyPress;
+            txt_customer_telephone.KeyPress += Txt_Product_KeyPress;
             txt_product_price.KeyPress += Txt_Product_KeyPress;
             txt_product_quantity.KeyPress += Txt_Product_KeyPress;
             product_add_btn.Click += Product_Add_Btn_Click;
@@ -980,8 +982,10 @@ namespace stockmanagement
                 lbl_customer_name_title.Visible = true;
                 lbl_customer_loan.Visible = true;
                 txt_customer_loan.Visible = true;
-                txt_product_name.Visible = false;
                 lbl_customer_name.Visible = false;
+                txt_customer_name.Visible = false;
+                txt_customer_meal_quantity.Visible = true;
+                lbl_meal_quantity.Visible = true;
             }
         }
         //customer mealadd button event handler
@@ -1021,6 +1025,14 @@ namespace stockmanagement
             }
         }
 
+        void customer_delete()
+        {
+            txt_customer_loan.Texts = "";
+            txt_customer_price.Texts = "";
+            txt_customer_address.Texts = "";
+            txt_customer_telephone.Texts = "";
+            txt_customer_meal_quantity.Texts = "";
+        }
         void Customer_Delete_Btn_Click(object sender, EventArgs e)
         {
             Boolean updated = false;
@@ -1043,16 +1055,25 @@ namespace stockmanagement
                             x.SetElementValue("customer_phonenumber", "");
                             x.SetElementValue("customer_loan", "");
                             x.Element("customer_price").SetAttributeValue("price", "");
-                            txt_customer_loan.Texts = "";
-                            txt_customer_price.Texts = "";
-                            txt_customer_address.Texts = "";
-                            txt_customer_telephone.Texts = "";
-                            txt_customer_meal_quantity.Texts = "";
+                            customer_delete();
                             getCustomers();
                             updated = true;
                         }
                         else
                             break;
+                    }
+                    else
+                    {
+                        x.SetElementValue("customer_id", "");
+                        x.SetElementValue("customer_name", "");
+                        x.SetElementValue("customer_address", "");
+                        x.SetElementValue("customer_phonenumber", "");
+                        x.SetElementValue("customer_loan", "");
+                        x.Element("customer_price").SetAttributeValue("price", "");
+                        MessageBox.Show("Customer Succesfully Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        customer_delete();
+                        getCustomers();
+                        break;
                     }
                 }
                 if (updated == true)
@@ -1067,7 +1088,7 @@ namespace stockmanagement
                             y.Element("meal_date").SetAttributeValue("date", "");
                         }
                     }
-                    MessageBox.Show("Update Succesfully Completed", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Customer Succesfully Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 }
             }
@@ -1076,7 +1097,44 @@ namespace stockmanagement
 
         void Customer_Add_Btn_Click(object sender, EventArgs e)
         {
-
+            int i = 1;
+            Boolean updated = false;
+            try
+            {
+                var update = xelement.Descendants("customer").ToList();
+                foreach (XElement x in update)
+                {
+                    if (x.Element("customer_id").Value == "")
+                    {
+                        updated = true;
+                        x.SetElementValue("customer_id", i);
+                        x.SetElementValue("customer_name", txt_customer_name.Texts);
+                        x.SetElementValue("customer_phonenumber", txt_customer_telephone.Texts);
+                        x.SetElementValue("customer_address", txt_customer_address.Texts);
+                        x.SetElementValue("customer_loan", 0);
+                        x.Element("customer_price").SetAttributeValue("price", txt_customer_price.Texts);
+                        break;
+                    }
+                    i++;
+                }
+                if (updated == false)
+                {
+                    xelement.Add(
+                      new XElement("customer", new XElement("customer_id", i),
+                      new XElement("customer_name", txt_customer_name.Texts),
+                      new XElement("customer_phonenumber", txt_customer_telephone.Texts),
+                      new XElement("customer_address", txt_customer_address.Texts),
+                      new XElement("customer_loan", 0),
+                      new XElement("customer_price", new XAttribute("price", txt_customer_price.Texts))));
+                }
+                MessageBox.Show("Customer Succesfully Added", "Adding Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                xelement.Save(@"../../stockmanagement.xml");
+                getCustomers();
+            }
+            catch
+            {
+                MessageBox.Show("Fill The Blankets!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         void Pnl_Customer_Add_Btn_Click(object sender, EventArgs e)
@@ -1085,7 +1143,9 @@ namespace stockmanagement
             txt_customer_price.Texts = "";
             txt_customer_address.Texts = "";
             txt_customer_telephone.Texts = "";
+            txt_customer_name.Texts = "";
             txt_customer_meal_quantity.Texts = "";
+
             customer_delete_btn.Enabled = false;
             customer_add_btn.Enabled = true;
             customer_update_btn.Enabled = false;
@@ -1093,10 +1153,12 @@ namespace stockmanagement
             main_panel.Visible = false;
             product_addedit_panel.Visible = false;
             customer_panel.Visible = true;
+            txt_customer_meal_quantity.Visible = false;
+            lbl_meal_quantity.Visible = false;
             lbl_customer_name_title.Visible = false;
             lbl_customer_loan.Visible = false;
             txt_customer_loan.Visible = false;
-            txt_product_name.Visible = true;
+            txt_customer_name.Visible = true;
             lbl_customer_name.Visible = true;
             lbl_customer_title.Location = new Point((customer_panel.Width - lbl_customer_title.Width) / 2, 60);
         }
