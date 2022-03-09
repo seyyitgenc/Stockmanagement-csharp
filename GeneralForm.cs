@@ -198,7 +198,6 @@ namespace stockmanagement
             checkavailable(0);
         }
 
-
         //show customers gridview
         void Show_Customer_Btn_Click(object sender, EventArgs e)
         {
