@@ -15,8 +15,8 @@ namespace stockmanagement
         private Button btn_login;
 
         //textboxes
-        customtextbox cxt = new customtextbox();
-        customtextbox cxt2 = new customtextbox();
+        customtextbox txt_username = new customtextbox();
+        customtextbox txt_password = new customtextbox();
         custombtn cbtn = new custombtn();
         private void Render()
         {
@@ -29,13 +29,13 @@ namespace stockmanagement
 
             this.BackgroundImageLayout = ImageLayout.Stretch;
             //adding custom textboxes into the form
-            this.Controls.Add(cxt);
-            this.Controls.Add(cxt2);
+            this.Controls.Add(txt_username);
+            this.Controls.Add(txt_password);
 
-            cxt.Location = new Point(170, 260);
-            cxt2.Location = new Point(170, 320);
-            cxt.Texts = "Username...";
-            cxt2.Texts = "Password...";
+            txt_username.Location = new Point(170, 260);
+            txt_password.Location = new Point(170, 320);
+            txt_username.Texts = "Username...";
+            txt_password.Texts = "Password...";
 
             //picture for login screen
             pic_user = new PictureBox
@@ -107,12 +107,12 @@ namespace stockmanagement
             btn_login.Click += Btn_Login_Click;
 
             //event handlers for textboxs
-            cxt.Enter += cxt_GotFocus;
-            cxt.Leave += cxt_LostFocus;
-            cxt.KeyPress += Cxt_KeyPress;
-            cxt2.Enter += cxt2_GotFocus;
-            cxt2.Leave += cxt2_LostFocus;
-            cxt2.KeyPress += Cxt2_KeyPress;
+            txt_username.Enter += cxt_GotFocus;
+            txt_username.Leave += cxt_LostFocus;
+            txt_username.KeyPress += Cxt_KeyPress;
+            txt_password.Enter += cxt2_GotFocus;
+            txt_password.Leave += cxt2_LostFocus;
+            txt_password.KeyPress += Cxt2_KeyPress;
 
             //event handlers for form
             this.FormClosed += Handle_FormClosed;

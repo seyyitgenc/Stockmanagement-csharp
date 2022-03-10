@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="LoginForm.cs">
     <Files>
-      <File FileName="GeneralForm.cs" Line="69" Column="9" />
-      <File FileName="GeneralFormDesigner.cs" Line="651" Column="41" />
-      <File FileName="LoginFormDesigner.cs" Line="9" Column="9" />
-      <File FileName="LoginForm.cs" Line="152" Column="10" />
+      <File FileName="stockmanagement.xml" Line="37" Column="36" />
+      <File FileName="LoginForm.cs" Line="35" Column="103" />
+      <File FileName="LoginFormDesigner.cs" Line="115" Column="25" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,6 +14,9 @@
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

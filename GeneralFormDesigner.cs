@@ -45,9 +45,9 @@ namespace stockmanagement
         private customtextbox txt_customer_name = new customtextbox();
 
         //button fields
-        private Button product_add_btn;
-        private Button product_edit_btn;
-        private Button product_delete_btn;
+        public Button product_add_btn;
+        public Button product_edit_btn;
+        public Button product_delete_btn;
 
         private Button pnl_product_add_btn;
         private Button pnl_prdct_btn;
@@ -58,10 +58,10 @@ namespace stockmanagement
         private Button outofstock_prdct_btn;
 
         private Button customer_mealadd_btn;
-        private Button customer_update_btn;
-        private Button customer_delete_btn;
+        public Button customer_update_btn;
+        public Button customer_delete_btn;
         private Button pnl_customer_add_btn;
-        private Button customer_add_btn;
+        public Button customer_add_btn;
 
         private DataGridViewButtonColumn editbutton = new DataGridViewButtonColumn();
 
