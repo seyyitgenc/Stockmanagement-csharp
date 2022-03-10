@@ -40,10 +40,8 @@ namespace stockmanagement
                     else
                         is_correct = false;
                 }
-
                 if (is_correct == false)
                     MessageBox.Show("Wrong Password or Username !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             }
             catch
             {

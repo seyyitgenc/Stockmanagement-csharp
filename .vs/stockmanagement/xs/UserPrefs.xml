@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="LoginForm.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LoginFormDesigner.cs">
     <Files>
       <File FileName="stockmanagement.xml" Line="37" Column="36" />
-      <File FileName="LoginForm.cs" Line="35" Column="103" />
       <File FileName="LoginFormDesigner.cs" Line="115" Column="25" />
     </Files>
     <Pads>
@@ -10,7 +9,8 @@
         <State name="__root__">
           <Node name="stockmanagement" expanded="True">
             <Node name="stockmanagement" expanded="True">
-              <Node name="LoginForm.cs" selected="True" />
+              <Node name="CustomControls" expanded="True" />
+              <Node name="LoginFormDesigner.cs" selected="True" />
             </Node>
           </Node>
         </State>
