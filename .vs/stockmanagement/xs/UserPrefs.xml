@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="LoginFormDesigner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeneralForm.cs">
     <Files>
-      <File FileName="stockmanagement.xml" Line="37" Column="36" />
-      <File FileName="LoginFormDesigner.cs" Line="115" Column="25" />
+      <File FileName="GeneralFormDesigner.cs" Line="664" Column="13" />
+      <File FileName="Program.cs" Line="11" Column="44" />
+      <File FileName="GeneralForm.cs" Line="20" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="stockmanagement" expanded="True">
             <Node name="stockmanagement" expanded="True">
-              <Node name="CustomControls" expanded="True" />
-              <Node name="LoginFormDesigner.cs" selected="True" />
+              <Node name="GeneralForm.cs" selected="True" />
             </Node>
           </Node>
         </State>

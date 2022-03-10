@@ -66,7 +66,6 @@ namespace stockmanagement
         private DataGridViewButtonColumn editbutton = new DataGridViewButtonColumn();
 
         //label fields
-
         private Label lbl_product_name;
         private Label lbl_product_category;
         private Label lbl_product_price;
@@ -78,9 +77,15 @@ namespace stockmanagement
         private Label lbl_product_title;
         private Label lbl_product_worth;
 
-        public Label lbl_welcome;
-        public Label lbl_user;
-        public Label lbl_role;
+        private LinkLabel lbl_expenses;
+        private LinkLabel lbl_payments;
+        private LinkLabel lbl_statistics;
+        private LinkLabel lbl_income;
+        private LinkLabel lbl_bills;
+
+        private Label lbl_welcome;
+        private Label lbl_user;
+        private Label lbl_role;
         private Label lbl_home;
         private Label lbl_meal_quantity;
 
@@ -609,9 +614,54 @@ namespace stockmanagement
                 Location = new Point(60, 25),
                 Font = new Font("Georgia", 10),
                 Text = "Home",
-                Size = new Size(100, 20),
-
+                AutoSize = true,
             };
+            lbl_expenses = new LinkLabel
+            {
+                Location = new Point(160, 25),
+                Font = new Font("Georgia", 10),
+                Text = "Expenses",
+                AutoSize = true,
+                LinkColor = Color.White,
+                LinkBehavior = LinkBehavior.NeverUnderline,
+            };
+            lbl_payments = new LinkLabel
+            {
+                Location = new Point(260, 25),
+                Font = new Font("Georgia", 10),
+                Text = "Payments",
+                AutoSize = true,
+                LinkColor = Color.White,
+                LinkBehavior = LinkBehavior.NeverUnderline,
+            };
+            lbl_statistics = new LinkLabel
+            {
+                Location = new Point(360, 25),
+                Font = new Font("Georgia", 10),
+                Text = "Statistics",
+                AutoSize = true,
+                LinkColor = Color.White,
+                LinkBehavior = LinkBehavior.NeverUnderline,
+            };
+            lbl_income = new LinkLabel
+            {
+                Location = new Point(460, 25),
+                Font = new Font("Georgia", 10),
+                Text = "Income",
+                AutoSize = true,
+                LinkColor = Color.White,
+                LinkBehavior = LinkBehavior.NeverUnderline,
+            };
+            lbl_bills = new LinkLabel
+            {
+                Location = new Point(540, 25),
+                Font = new Font("Georgia", 10, FontStyle.Regular),
+                Text = "Bills",
+                AutoSize = true,
+                LinkColor = Color.White,
+                LinkBehavior = LinkBehavior.NeverUnderline,
+            };
+
             //label controls on user panel
             lbl_welcome = new Label
             {
@@ -621,7 +671,6 @@ namespace stockmanagement
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Georgia", 10)
             };
-
             lbl_role = new Label
             {
                 Text = "Admin",
@@ -719,6 +768,11 @@ namespace stockmanagement
             //upper panel controls
             upper_panel.Controls.Add(picboxhome);
             upper_panel.Controls.Add(lbl_home);
+            upper_panel.Controls.Add(lbl_expenses);
+            upper_panel.Controls.Add(lbl_payments);
+            upper_panel.Controls.Add(lbl_statistics);
+            upper_panel.Controls.Add(lbl_income);
+            upper_panel.Controls.Add(lbl_bills);
 
             //main panel controls
             main_panel.Controls.Add(productdatagridview);
