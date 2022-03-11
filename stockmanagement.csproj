@@ -60,6 +60,9 @@
     <None Include="images\icon2.png" />
     <None Include="stockmanagement.xml" />
     <None Include="images\userm.png" />
+    <None Include="images\warning.png" />
+    <None Include="images\information.png" />
+    <None Include="images\error.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomMessageBox\" />
