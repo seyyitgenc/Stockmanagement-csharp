@@ -50,6 +50,8 @@
     <Compile Include="MealAddForm.cs" />
     <Compile Include="GeneralFormDesigner.cs" />
     <Compile Include="LoginFormDesigner.cs" />
+    <Compile Include="CustomMessageBox\MessageBoxFormDesigner.cs" />
+    <Compile Include="CustomMessageBox\MessageBoxForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="images\bg.jpg" />
@@ -58,6 +60,9 @@
     <None Include="images\icon2.png" />
     <None Include="stockmanagement.xml" />
     <None Include="images\userm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomMessageBox\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

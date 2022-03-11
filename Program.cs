@@ -8,7 +8,7 @@ namespace stockmanagement
     {
         public static void Main(string[] args)
         {
-            Application.Run(new GeneralForm());
+            Application.Run(new MessageBoxForm());
         }
     }
 }

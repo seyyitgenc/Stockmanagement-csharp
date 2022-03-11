@@ -14,7 +14,6 @@ namespace stockmanagement
         private string customerid = "";
         private int productid;
         private int mealquantity = 0;
-
         //form
         public GeneralForm()
         {
