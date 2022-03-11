@@ -54,7 +54,7 @@ namespace stockmanagement
             {
                 Size = new Size(100, 40),
                 Text = "Ignore",
-                Location = new Point(270, 25),
+                Location = new Point(410, 25),
                 BackColor = Color.Gray,
                 Font = new Font("Times New Roman", 14, FontStyle.Regular),
             };
@@ -62,7 +62,7 @@ namespace stockmanagement
             {
                 Size = new Size(100, 40),
                 Text = "Retry",
-                Location = new Point(410, 25),
+                Location = new Point(270, 25),
                 BackColor = Color.Gray,
                 Font = new Font("Times New Roman", 14, FontStyle.Regular),
             };
@@ -70,8 +70,7 @@ namespace stockmanagement
             //label customization
             lbl_Text = new Label
             {
-
-                Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies ipsum vel lacus dapibus, sit amet facilisis diam rhoncus. Donec dignissim lacus id ex feugiat, at scelerisque arcu gravida. Nulla ante ex, pulvinar quis fringilla sed, fringilla et neque. Cras eu imperdiet enim, ac vulputate dui.",
+                Text = "it's workinggggg",
                 MinimumSize = new Size(400, 684),
                 MaximumSize = new Size(400, 684),
                 Font = new Font("Times New Roman", 12, FontStyle.Regular),
@@ -106,15 +105,6 @@ namespace stockmanagement
             this.Load += Handle_Load;
         }
 
-        void Handle_Load(object sender, EventArgs e)
-        {
-            //measuring the size of the label text
-            Size size = TextRenderer.MeasureText(lbl_Text.Text, lbl_Text.Font);
-            int satırsayi = size.Width / 380;
-            this.Height += (satırsayi * 19);
-            Console.WriteLine(size);
-
-        }
 
     }
 }

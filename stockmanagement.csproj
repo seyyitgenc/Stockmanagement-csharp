@@ -52,6 +52,7 @@
     <Compile Include="LoginFormDesigner.cs" />
     <Compile Include="CustomMessageBox\MessageBoxFormDesigner.cs" />
     <Compile Include="CustomMessageBox\MessageBoxForm.cs" />
+    <Compile Include="CustomMessageBox\MessageBoxDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="images\bg.jpg" />
