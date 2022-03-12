@@ -22,6 +22,7 @@ namespace stockmanagement
         }
 
         //enum for messageboxbuttons
+
         public enum MsgButtons
         {
             Ok = 0,
@@ -29,8 +30,27 @@ namespace stockmanagement
             RetryCancel = 2,
             YesNo = 3,
             YesNoCancel = 4,
-            AbortRetryIgnore = 5,
             SendDontSendCancel = 6,
+        }
+
+        //enum for dialogresult
+
+        public enum MsgResult
+        {
+            Cancel = 1,
+            Retry = 2,
+            Yes = 3,
+            No = 4,
+            Ok = 5,
+            DontSend = 6,
+            Send = 7,
+        }
+
+        public enum MsgIcon
+        {
+            error = 0,
+            information = 1,
+            warning = 2,
         }
 
         //constructors
@@ -38,6 +58,7 @@ namespace stockmanagement
         {
             Render();
             lbl_Text.Text = text;
+            this.Text = "Information";
             SetButtons(MsgButtons.Ok);
         }
         public MessageBoxForm(string text, string caption)
@@ -54,17 +75,103 @@ namespace stockmanagement
             this.Text = caption;
             SetButtons(buttons);
         }
-
-
+        public MessageBoxForm(string text, string caption, MsgButtons buttons, MsgIcon icon)
+        {
+            Render();
+            lbl_Text.Text = text;
+            this.Text = caption;
+            SetButtons(buttons);
+            setIcon(icon);
+        }
+        //icon
+        private void setIcon(MsgIcon icon)
+        {
+            switch (icon)
+            {
+                case MsgIcon.error:
+                    picbox_Icon.BackgroundImage = Image.FromFile(@"../../images/error.png");
+                    break;
+                case MsgIcon.information:
+                    picbox_Icon.BackgroundImage = Image.FromFile(@"../../images/information.png");
+                    break;
+                case MsgIcon.warning:
+                    picbox_Icon.BackgroundImage = Image.FromFile(@"../../images/warning.png");
+                    break;
+            }
+        }
+        //button
         private void SetButtons(MsgButtons buttons)
         {
             switch (buttons)
             {
                 case MsgButtons.Ok:
-                    //OK Button
+                    btn_Left.Visible = false;
+                    btn_Right.Visible = false;
+                    //Ok Button
                     btn_Middle.Visible = true;
                     btn_Middle.Text = "Ok";
-                    btn_Middle.DialogResult = DialogResult.OK;//Set DialogResult
+                    btn_Middle.DialogResult = (DialogResult)MsgResult.Ok;
+                    break;
+                case MsgButtons.OkCancel:
+                    btn_Left.Visible = false;
+                    //Ok Button
+                    btn_Middle.Visible = true;
+                    btn_Middle.Text = "Ok";
+                    btn_Middle.DialogResult = (DialogResult)MsgResult.Ok;
+                    //Cancel Button
+                    btn_Right.Text = "Cancel";
+                    btn_Right.Visible = true;
+                    btn_Right.DialogResult = (DialogResult)MsgResult.Cancel;
+                    break;
+                case MsgButtons.YesNo:
+                    btn_Left.Visible = false;
+                    //Yes Button
+                    btn_Middle.Visible = true;
+                    btn_Middle.Text = "Yes";
+                    btn_Middle.DialogResult = (DialogResult)MsgResult.Yes;
+                    //No Button
+                    btn_Right.Visible = true;
+                    btn_Right.Text = "No";
+                    btn_Right.DialogResult = (DialogResult)MsgResult.No;
+                    break;
+                case MsgButtons.RetryCancel:
+                    btn_Left.Visible = false;
+                    //Retry Button
+                    btn_Middle.Visible = true;
+                    btn_Middle.Text = "Retry";
+                    btn_Middle.DialogResult = (DialogResult)MsgResult.Retry;
+                    //Cancel Button
+                    btn_Right.Visible = true;
+                    btn_Right.Text = "Cancel";
+                    btn_Right.DialogResult = (DialogResult)MsgResult.Cancel;
+                    break;
+                case MsgButtons.YesNoCancel:
+                    //Yes Button
+                    btn_Left.Visible = true;
+                    btn_Left.Text = "Yes";
+                    btn_Left.DialogResult = (DialogResult)MsgResult.Yes;
+                    //No Button
+                    btn_Middle.Visible = true;
+                    btn_Middle.Text = "No";
+                    btn_Middle.DialogResult = (DialogResult)MsgResult.No;
+                    //Cancel Button
+                    btn_Right.Visible = true;
+                    btn_Right.Text = "Cancel";
+                    btn_Right.DialogResult = (DialogResult)MsgResult.Cancel;
+                    break;
+                case MsgButtons.SendDontSendCancel:
+                    //Send Button
+                    btn_Left.Visible = true;
+                    btn_Left.Text = "Send";
+                    btn_Left.DialogResult = (DialogResult)MsgResult.Send;
+                    //Dont Send Button
+                    btn_Middle.Visible = true;
+                    btn_Middle.Text = "Don't Send";
+                    btn_Middle.DialogResult = (DialogResult)MsgResult.DontSend;
+                    //Cancel Button
+                    btn_Right.Visible = true;
+                    btn_Right.Text = "Cancel";
+                    btn_Right.DialogResult = (DialogResult)MsgResult.Cancel;
                     break;
             }
         }

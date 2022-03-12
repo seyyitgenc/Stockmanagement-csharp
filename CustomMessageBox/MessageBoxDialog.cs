@@ -8,28 +8,34 @@ namespace stockmanagement
 {
     public abstract class CustomMessageBox
     {
-        public static DialogResult Show(string text)
+        public static MsgResult Show(string text)
         {
-            DialogResult result;
+            MsgResult result;
             using (var msgForm = new MessageBoxForm(text))
-                result = msgForm.ShowDialog();
+                result = (MsgResult)msgForm.ShowDialog();
             return result;
         }
-        public static DialogResult Show(string text, string caption)
+        public static MsgResult Show(string text, string caption)
         {
-            DialogResult result;
+            MsgResult result;
             using (var msgForm = new MessageBoxForm(text, caption))
-                result = msgForm.ShowDialog();
+                result = (MsgResult)msgForm.ShowDialog();
             return result;
         }
-        public static DialogResult Show(string text, string caption, MsgButtons buttons)
+        public static MsgResult Show(string text, string caption, MsgButtons buttons)
         {
-            DialogResult result;
+            MsgResult result;
             using (var msgForm = new MessageBoxForm(text, caption, buttons))
-                result = msgForm.ShowDialog();
+                result = (MsgResult)msgForm.ShowDialog();
             return result;
         }
-
+        public static MsgResult Show(string text, string caption, MsgButtons buttons, MsgIcon icon)
+        {
+            MsgResult result;
+            using (var msgForm = new MessageBoxForm(text, caption, buttons, icon))
+                result = (MsgResult)msgForm.ShowDialog();
+            return result;
+        }
 
     }
 }

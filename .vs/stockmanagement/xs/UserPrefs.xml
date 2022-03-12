@@ -1,18 +1,19 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomMessageBox/MessageBoxForm.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeneralForm.cs">
     <Files>
-      <File FileName="CustomMessageBox/MessageBoxForm.cs" Line="43" Column="17" />
-      <File FileName="CustomMessageBox/MessageBoxDialog.cs" Line="17" Column="10" />
-      <File FileName="Program.cs" Line="12" Column="10" />
+      <File FileName="CustomMessageBox/MessageBoxForm.cs" Line="32" Column="29" />
+      <File FileName="CustomMessageBox/MessageBoxDialog.cs" Line="32" Column="99" />
+      <File FileName="Program.cs" Line="11" Column="48" />
+      <File FileName="GeneralForm.cs" Line="84" Column="96" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="stockmanagement" expanded="True">
             <Node name="stockmanagement" expanded="True">
-              <Node name="CustomMessageBox" expanded="True">
-                <Node name="MessageBoxForm.cs" selected="True" />
-              </Node>
+              <Node name="CustomMessageBox" expanded="True" />
+              <Node name="images" expanded="True" />
+              <Node name="GeneralForm.cs" selected="True" />
             </Node>
           </Node>
         </State>
