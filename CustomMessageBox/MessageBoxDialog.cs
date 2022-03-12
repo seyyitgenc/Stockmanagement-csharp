@@ -36,6 +36,5 @@ namespace stockmanagement
                 result = (MsgResult)msgForm.ShowDialog();
             return result;
         }
-
     }
 }

@@ -70,6 +70,7 @@ namespace stockmanagement
         private void pnl_prdct_btn_CLick(object sender, EventArgs e)
         {
             leftshowpanel(product_controls_panel);
+            CustomMessageBox.Show("");
         }
 
         void Pnl_Customer_Btn_Click(object sender, EventArgs e)

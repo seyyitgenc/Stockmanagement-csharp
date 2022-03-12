@@ -17,12 +17,12 @@ namespace stockmanagement
         {
             //measuring the size of the label text
             Size size = TextRenderer.MeasureText(lbl_Text.Text, lbl_Text.Font);
-            int rowCount = size.Width / 380;
-            this.Height += (rowCount * 19);
+            int rowCount = size.Width / 400;
+            this.Height += (rowCount * 19)-80;
+            CenterToScreen();
         }
 
         //enum for messageboxbuttons
-
         public enum MsgButtons
         {
             Ok = 0,
@@ -34,7 +34,6 @@ namespace stockmanagement
         }
 
         //enum for dialogresult
-
         public enum MsgResult
         {
             Cancel = 1,
@@ -46,6 +45,7 @@ namespace stockmanagement
             Send = 7,
         }
 
+        //enum for messageboxicon
         public enum MsgIcon
         {
             error = 0,
@@ -58,28 +58,28 @@ namespace stockmanagement
         {
             Render();
             lbl_Text.Text = text;
-            this.Text = "Information";
+            this.lbl_Caption.Text = "Infjfkdsfkdsajfkdsfkdsnfjdsfjdsfjdsfsjbfbsabffffffdsffkdsaormation";
             SetButtons(MsgButtons.Ok);
         }
         public MessageBoxForm(string text, string caption)
         {
             Render();
             lbl_Text.Text = text;
-            this.Text = caption;
+            this.lbl_Caption.Text = caption;
             SetButtons(MsgButtons.Ok);
         }
         public MessageBoxForm(string text, string caption, MsgButtons buttons)
         {
             Render();
             lbl_Text.Text = text;
-            this.Text = caption;
+            this.lbl_Caption.Text = caption;
             SetButtons(buttons);
         }
         public MessageBoxForm(string text, string caption, MsgButtons buttons, MsgIcon icon)
         {
             Render();
             lbl_Text.Text = text;
-            this.Text = caption;
+            this.lbl_Caption.Text = caption;
             SetButtons(buttons);
             setIcon(icon);
         }
@@ -175,5 +175,11 @@ namespace stockmanagement
                     break;
             }
         }
+
+        void Btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

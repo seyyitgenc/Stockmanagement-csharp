@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="GeneralForm.cs">
     <Files>
-      <File FileName="CustomMessageBox/MessageBoxForm.cs" Line="32" Column="29" />
-      <File FileName="CustomMessageBox/MessageBoxDialog.cs" Line="32" Column="99" />
-      <File FileName="Program.cs" Line="11" Column="48" />
-      <File FileName="GeneralForm.cs" Line="84" Column="96" />
+      <File FileName="CustomMessageBox/MessageBoxForm.cs" Line="21" Column="45" />
+      <File FileName="CustomMessageBox/MessageBoxFormDesigner.cs" Line="36" Column="47" />
+      <File FileName="GeneralForm.cs" Line="73" Column="36" />
+      <File FileName="Program.cs" Line="11" Column="44" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +12,6 @@
           <Node name="stockmanagement" expanded="True">
             <Node name="stockmanagement" expanded="True">
               <Node name="CustomMessageBox" expanded="True" />
-              <Node name="images" expanded="True" />
               <Node name="GeneralForm.cs" selected="True" />
             </Node>
           </Node>
@@ -27,6 +26,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../ProductEditForm.cs" line="297" offsetX="458" offsetY="5328" expression="imageurledit" liveUpdate="False" />
     <Watch file="../../../GeneralForm.cs" line="640" offsetX="383" offsetY="10863" expression="index" liveUpdate="True" />
+    <Watch file="../../../CustomControls/custombtn.cs" line="51" offsetX="316" offsetY="750" expression="value" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
