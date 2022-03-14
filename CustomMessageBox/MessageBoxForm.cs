@@ -7,21 +7,6 @@ namespace stockmanagement
 {
     public partial class MessageBoxForm : Form
     {
-        public MessageBoxForm()
-        {
-            CenterToScreen();
-            Render();
-        }
-        //messagebox load event
-        void Handle_Load(object sender, EventArgs e)
-        {
-            //measuring the size of the label text
-            Size size = TextRenderer.MeasureText(lbl_Text.Text, lbl_Text.Font);
-            int rowCount = size.Width / 400;
-            this.Height += (rowCount * 19)-80;
-            CenterToScreen();
-        }
-
         //enum for messageboxbuttons
         public enum MsgButtons
         {
@@ -32,7 +17,6 @@ namespace stockmanagement
             YesNoCancel = 4,
             SendDontSendCancel = 6,
         }
-
         //enum for dialogresult
         public enum MsgResult
         {
@@ -44,7 +28,6 @@ namespace stockmanagement
             DontSend = 6,
             Send = 7,
         }
-
         //enum for messageboxicon
         public enum MsgIcon
         {
@@ -53,35 +36,45 @@ namespace stockmanagement
             warning = 2,
         }
 
+        void ResizeForm()
+        {
+            this.Height += txt_message.Height;
+            CenterToScreen();
+        }
+
         //constructors
         public MessageBoxForm(string text)
         {
             Render();
-            lbl_Text.Text = text;
-            this.lbl_Caption.Text = "Infjfkdsfkdsajfkdsfkdsnfjdsfjdsfjdsfsjbfbsabffffffdsffkdsaormation";
+            txt_message.Text = text;
+            lbl_Caption.Text = "Information";
             SetButtons(MsgButtons.Ok);
+            ResizeForm();
         }
         public MessageBoxForm(string text, string caption)
         {
             Render();
-            lbl_Text.Text = text;
-            this.lbl_Caption.Text = caption;
+            txt_message.Text = text;
+            lbl_Caption.Text = caption;
             SetButtons(MsgButtons.Ok);
+            ResizeForm();
         }
         public MessageBoxForm(string text, string caption, MsgButtons buttons)
         {
             Render();
-            lbl_Text.Text = text;
-            this.lbl_Caption.Text = caption;
+            txt_message.Text = text;
+            lbl_Caption.Text = caption;
             SetButtons(buttons);
+            ResizeForm();
         }
         public MessageBoxForm(string text, string caption, MsgButtons buttons, MsgIcon icon)
         {
             Render();
-            lbl_Text.Text = text;
-            this.lbl_Caption.Text = caption;
+            txt_message.Text = text;
+            lbl_Caption.Text = caption;
             SetButtons(buttons);
             setIcon(icon);
+            ResizeForm();
         }
         //icon
         private void setIcon(MsgIcon icon)
@@ -122,6 +115,7 @@ namespace stockmanagement
                     btn_Right.Text = "Cancel";
                     btn_Right.Visible = true;
                     btn_Right.DialogResult = (DialogResult)MsgResult.Cancel;
+                    btn_Right.BackColor = Color.DimGray;
                     break;
                 case MsgButtons.YesNo:
                     btn_Left.Visible = false;
@@ -133,6 +127,7 @@ namespace stockmanagement
                     btn_Right.Visible = true;
                     btn_Right.Text = "No";
                     btn_Right.DialogResult = (DialogResult)MsgResult.No;
+                    btn_Right.BackColor = Color.IndianRed;
                     break;
                 case MsgButtons.RetryCancel:
                     btn_Left.Visible = false;
@@ -144,6 +139,7 @@ namespace stockmanagement
                     btn_Right.Visible = true;
                     btn_Right.Text = "Cancel";
                     btn_Right.DialogResult = (DialogResult)MsgResult.Cancel;
+                    btn_Right.BackColor = Color.DimGray;
                     break;
                 case MsgButtons.YesNoCancel:
                     //Yes Button
@@ -154,10 +150,12 @@ namespace stockmanagement
                     btn_Middle.Visible = true;
                     btn_Middle.Text = "No";
                     btn_Middle.DialogResult = (DialogResult)MsgResult.No;
+                    btn_Middle.BackColor = Color.IndianRed;
                     //Cancel Button
                     btn_Right.Visible = true;
                     btn_Right.Text = "Cancel";
                     btn_Right.DialogResult = (DialogResult)MsgResult.Cancel;
+                    btn_Right.BackColor = Color.DimGray;
                     break;
                 case MsgButtons.SendDontSendCancel:
                     //Send Button
@@ -168,17 +166,38 @@ namespace stockmanagement
                     btn_Middle.Visible = true;
                     btn_Middle.Text = "Don't Send";
                     btn_Middle.DialogResult = (DialogResult)MsgResult.DontSend;
+                    btn_Middle.BackColor = Color.IndianRed;
                     //Cancel Button
                     btn_Right.Visible = true;
                     btn_Right.Text = "Cancel";
                     btn_Right.DialogResult = (DialogResult)MsgResult.Cancel;
+                    btn_Right.BackColor = Color.DimGray;
                     break;
             }
         }
-
         void Btn_Close_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
+        }
+        //for moving form
+        void Pnl_TitleBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                Location = new Point(
+                    (Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
+
+                Update();
+            }
+        }
+        void Pnl_TitleBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+        void Pnl_TitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
         }
 
     }

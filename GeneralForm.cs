@@ -6,6 +6,8 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
 
+using static stockmanagement.MessageBoxForm;
+
 namespace stockmanagement
 {
     public partial class GeneralForm : Form
@@ -70,7 +72,6 @@ namespace stockmanagement
         private void pnl_prdct_btn_CLick(object sender, EventArgs e)
         {
             leftshowpanel(product_controls_panel);
-            CustomMessageBox.Show("");
         }
 
         void Pnl_Customer_Btn_Click(object sender, EventArgs e)
@@ -85,7 +86,7 @@ namespace stockmanagement
             try
             {
                 var product = from x in xelement.Descendants("product")
-                              where (string)x.Element("product_available").Attribute("type") != null
+                              where (string)x.Element("product_availabfle").Attribute("type") != null
                               select new
                               {
                                   xmlid = x.Element("product_id").Value,
@@ -109,7 +110,7 @@ namespace stockmanagement
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                CustomMessageBox.Show(e.ToString(), "Error!", MsgButtons.SendDontSendCancel, MsgIcon.error);
             }
         }
 
