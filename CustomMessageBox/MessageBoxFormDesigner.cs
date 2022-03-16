@@ -61,7 +61,6 @@ namespace stockmanagement
             {
                 BackColor = Color.CornflowerBlue,
                 Dock = DockStyle.Top,
-                Location = new Point(2, 2),
                 Size = new Size(600, 30),
             };
 
@@ -142,8 +141,9 @@ namespace stockmanagement
             {
                 Text = "Information",
                 Font = new Font("Times New Roman", 12, FontStyle.Regular),
-                Location = new Point(20, 0),
-                Anchor = AnchorStyles.Left,
+                AutoSize = true,
+                Dock = DockStyle.Left,
+                TextAlign = ContentAlignment.TopLeft,
                 ForeColor = Color.Black,
                 BackColor = Color.Transparent,
             };

@@ -14,7 +14,7 @@ namespace stockmanagement
         private XElement xelement = XElement.Load(@"..\..\stockmanagement.xml");
         private string customerid = "";
         private int productid;
-        private int mealquantity = 0;
+        private int mealquantity;
         //form
         public GeneralForm()
         {
@@ -27,7 +27,7 @@ namespace stockmanagement
         {
             customerdatagridview.Columns.Insert(0, editbutton);
             productdatagridview.Columns.Insert(0, editbutton);
-            getCustomers();
+            GetCustomers();
             customer_controls_panel.Visible = false;
             product_controls_panel.Visible = false;
             customer_panel.Visible = false;
@@ -68,18 +68,18 @@ namespace stockmanagement
         }
 
         //button eventhandlers
-        private void pnl_prdct_btn_CLick(object sender, EventArgs e)
+        private void Pnl_prdct_btn_CLick(object sender, EventArgs e)
         {
-            leftshowpanel(product_controls_panel);
+            Leftshowpanel(product_controls_panel);
         }
 
         void Pnl_Customer_Btn_Click(object sender, EventArgs e)
         {
-            leftshowpanel(customer_controls_panel);
+            Leftshowpanel(customer_controls_panel);
         }
 
         //populating product datagridview
-        public void get_product()
+        public void Get_product()
         {
             productdatagridview.Rows.Clear();
             try
@@ -109,12 +109,12 @@ namespace stockmanagement
             }
             catch (Exception e)
             {
-                CustomMessageBox.Show(e.ToString(), "Error!", MsgButtons.SendDontSendCancel, MsgIcon.error);
+                CustomMessageBox.Show("Unexpected Behaviour. Here Is Your Crash Report : \n\n" + e, "Somethings Wrong!", MsgButtons.SendDontSendCancel, MsgIcon.error);
             }
         }
 
         //populating customerdatdagridview 
-        public void getCustomers()
+        public void GetCustomers()
         {
             customerdatagridview.Rows.Clear();
             customerdatagridview.Columns[0].HeaderText = "Select";
@@ -144,10 +144,10 @@ namespace stockmanagement
         void Show_Prdct_Btn_Click(object sender, EventArgs e)
         {
             main_panel.Visible = true;
-            showgrid(productdatagridview);
-            get_product();
+            Showgrid(productdatagridview);
+            Get_product();
         }
-        void checkavailable(int data)
+        void Checkavailable(int data)
         {
             productdatagridview.Rows.Clear();
             productdatagridview.Columns.Clear();
@@ -169,7 +169,7 @@ namespace stockmanagement
                                  };
                 foreach (var x in getProduct)
                     productdatagridview.Rows.Add("", x.xmlid, x.xmlname, x.xmltype, x.xmlcategory, x.xmlprice, x.xmlquantity, x.xmlavailable);
-                showgrid(productdatagridview);
+                Showgrid(productdatagridview);
                 main_panel.Visible = true;
                 productdatagridview.Columns[0].HeaderText = "Edit";
                 productdatagridview.Columns[1].HeaderText = "Id";
@@ -182,27 +182,27 @@ namespace stockmanagement
             }
             catch (Exception e)
             {
-                CustomMessageBox.Show(e.ToString(), "Error", MsgButtons.Ok, MsgIcon.error);
+                CustomMessageBox.Show("Unexpected Behaviour. Here Is Your Crash Report : \n\n" + e, "Somethings Wrong!", MsgButtons.SendDontSendCancel, MsgIcon.error);
             }
         }
 
         //show datagridview of storage
         void Storage_Prdct_Btn_Click(object sender, EventArgs e)
         {
-            checkavailable(1);
+            Checkavailable(1);
         }
 
         //show datagirdview of outofstock
         void Outofstock_Prdct_Btn_Click(object sender, EventArgs e)
         {
-            checkavailable(0);
+            Checkavailable(0);
         }
 
         //show customers gridview
         void Show_Customer_Btn_Click(object sender, EventArgs e)
         {
             main_panel.Visible = true;
-            showgrid(customerdatagridview);
+            Showgrid(customerdatagridview);
         }
 
         //customer datagridview 
@@ -246,8 +246,10 @@ namespace stockmanagement
         //customer mealadd button event handler
         void Customer_Mealadd_Btn_Click(object sender, EventArgs e)
         {
-            MealAddForm maf = new MealAddForm();
-            maf.customer_id = customerid;
+            MealAddForm maf = new MealAddForm
+            {
+                customer_id = customerid
+            };
             this.Hide();
             maf.Show();
         }
@@ -272,15 +274,15 @@ namespace stockmanagement
                 }
                 xelement.Save(@"../../stockmanagement.xml");
                 CustomMessageBox.Show("Update Succesfully Completed !", "Update", MsgButtons.Ok, MsgIcon.information);
-                getCustomers();
+                GetCustomers();
             }
             catch (Exception ex)
             {
-                CustomMessageBox.Show(ex.ToString(), "Error", MsgButtons.Ok, MsgIcon.error);
+                CustomMessageBox.Show("Unexpected behaviour!! \n" + ex, "Somethhings Wrong", MsgButtons.Ok, MsgIcon.error);
             }
         }
 
-        void customer_delete()
+        void Customer_delete()
         {
             txt_customer_loan.Texts = "";
             txt_customer_price.Texts = "";
@@ -310,8 +312,8 @@ namespace stockmanagement
                             x.SetElementValue("customer_phonenumber", "");
                             x.SetElementValue("customer_loan", "");
                             x.Element("customer_price").SetAttributeValue("price", "");
-                            customer_delete();
-                            getCustomers();
+                            Customer_delete();
+                            GetCustomers();
                             updated = true;
                         }
                         else
@@ -326,8 +328,8 @@ namespace stockmanagement
                         x.SetElementValue("customer_loan", "");
                         x.Element("customer_price").SetAttributeValue("price", "");
                         CustomMessageBox.Show("Customer Succesfully Deleted", "Deleted", MsgButtons.Ok, MsgIcon.information);
-                        customer_delete();
-                        getCustomers();
+                        Customer_delete();
+                        GetCustomers();
                         break;
                     }
                 }
@@ -384,7 +386,7 @@ namespace stockmanagement
                 }
                 CustomMessageBox.Show("Customer Succesfully Added", "Adding Succesfull", MsgButtons.Ok, MsgIcon.information);
                 xelement.Save(@"../../stockmanagement.xml");
-                getCustomers();
+                GetCustomers();
             }
             catch
             {
@@ -518,8 +520,8 @@ namespace stockmanagement
                       new XElement("product_quantity", txt_product_quantity.Texts),
                       new XElement("product_available", new XAttribute("type", product_quantity))));
                 }
-                product_add_event_finished();
-                get_product();
+                Product_add_event_finished();
+                Get_product();
                 CustomMessageBox.Show("Product Succesfully Added", "Adding Succesfull", MsgButtons.Ok, MsgIcon.information);
                 xelement.Save(@"../../stockmanagement.xml");
             }
@@ -551,9 +553,9 @@ namespace stockmanagement
                 CustomMessageBox.Show("Element Succesfully Deleted", "Delete Succesfull", MsgButtons.Ok, MsgIcon.information);
                 main_panel.Visible = true;
                 product_addedit_panel.Visible = false;
-                get_product();
+                Get_product();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CustomMessageBox.Show(ex.ToString(), "Error", MsgButtons.Ok, MsgIcon.error);
             }
@@ -586,7 +588,7 @@ namespace stockmanagement
                 MessageBox.Show("Update Succesfully Completed", "Update Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 main_panel.Visible = true;
                 product_addedit_panel.Visible = false;
-                get_product();
+                Get_product();
             }
             catch
             {
@@ -608,7 +610,7 @@ namespace stockmanagement
             product_toggle_available.Checked = false;
             lbl_product_onoff.Text = "Not Available";
         }
-        void product_add_event_finished()
+        void Product_add_event_finished()
         {
             txt_product_name.Texts = "";
             txt_product_price.Texts = "";
@@ -617,17 +619,17 @@ namespace stockmanagement
         }
 
         //panel visible function
-        public void hidepanel()
+        public void Hidepanel()
         {
             customer_panel.Visible = false;
             product_addedit_panel.Visible = false;
             main_panel.Visible = false;
         }
-        public void showpanel(Panel panel)
+        public void Showpanel(Panel panel)
         {
             if (panel.Visible == false)
             {
-                hidepanel();
+                Hidepanel();
                 panel.Visible = true;
             }
             else
@@ -641,7 +643,7 @@ namespace stockmanagement
         }
         */
 
-        public void leftshowpanel(Panel panel)
+        public void Leftshowpanel(Panel panel)
         {
             if (panel.Visible == false)
             {
@@ -651,17 +653,17 @@ namespace stockmanagement
             else
                 panel.Visible = false;
         }
-        public void hidegrid()
+        public void Hidegrid()
         {
             productdatagridview.Visible = false;
             customer_panel.Visible = false;
             customerdatagridview.Visible = false;
         }
-        public void showgrid(DataGridView dgv)
+        public void Showgrid(DataGridView dgv)
         {
             if (dgv.Visible == false)
             {
-                hidegrid();
+                Hidegrid();
                 dgv.Visible = true;
             }
             else

@@ -48,11 +48,13 @@
     <Compile Include="CustomControls\customcombobox.cs" />
     <Compile Include="CustomControls\custompicturebox.cs" />
     <Compile Include="MealAddForm.cs" />
-    <Compile Include="GeneralFormDesigner.cs" />
-    <Compile Include="LoginFormDesigner.cs" />
     <Compile Include="CustomMessageBox\MessageBoxFormDesigner.cs" />
     <Compile Include="CustomMessageBox\MessageBoxForm.cs" />
     <Compile Include="CustomMessageBox\MessageBoxDialog.cs" />
+    <Compile Include="PanelDesigners\CustomerPanelDesigner.cs" />
+    <Compile Include="PanelDesigners\ProductAddEditPanelDesigner.cs" />
+    <Compile Include="FormDesigners\GeneralFormDesigner.cs" />
+    <Compile Include="FormDesigners\LoginFormDesigner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="images\bg.jpg" />
@@ -67,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomMessageBox\" />
+    <Folder Include="PanelDesigners\" />
+    <Folder Include="FormDesigners\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -138,7 +138,7 @@
     <customer_name>Abdulhamit Celik</customer_name>
     <customer_phonenumber>05555555555</customer_phonenumber>
     <customer_address>bla bla blaaa</customer_address>
-    <customer_loan>0</customer_loan>
+    <customer_loan>150</customer_loan>
     <customer_price price="30" />
   </customer>
   <customer>
@@ -158,10 +158,10 @@
     <customer_price price="" />
   </customer>
   <meal>
-    <customer_id></customer_id>
-    <meal_id></meal_id>
-    <meal_quantity></meal_quantity>
-    <meal_date date="" />
+    <customer_id>1</customer_id>
+    <meal_id>1</meal_id>
+    <meal_quantity>5</meal_quantity>
+    <meal_date date="16 03 2022" />
   </meal>
   <meal>
     <customer_id></customer_id>

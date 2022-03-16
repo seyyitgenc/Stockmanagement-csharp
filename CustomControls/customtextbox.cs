@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace stockmanagement
 {
     [DefaultEvent("_TextChanged")]
-    public partial class customtextbox : UserControl
+    public  class customtextbox : UserControl
     {
         //Fields
         private Color borderColor = Color.RoyalBlue;

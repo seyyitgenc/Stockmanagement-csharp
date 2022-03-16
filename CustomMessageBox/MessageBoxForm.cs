@@ -73,11 +73,11 @@ namespace stockmanagement
             txt_message.Text = text;
             lbl_Caption.Text = caption;
             SetButtons(buttons);
-            setIcon(icon);
+            SetIcon(icon);
             ResizeForm();
         }
         //icon
-        private void setIcon(MsgIcon icon)
+        private void SetIcon(MsgIcon icon)
         {
             switch (icon)
             {
@@ -109,7 +109,7 @@ namespace stockmanagement
                     btn_Left.Visible = false;
                     //Ok Button
                     btn_Middle.Visible = true;
-                    btn_Middle.Text = "Ok";
+                    btn_Middle.Text = "&O&k";
                     btn_Middle.DialogResult = (DialogResult)MsgResult.Ok;
                     //Cancel Button
                     btn_Right.Text = "Cancel";
@@ -121,7 +121,7 @@ namespace stockmanagement
                     btn_Left.Visible = false;
                     //Yes Button
                     btn_Middle.Visible = true;
-                    btn_Middle.Text = "Yes";
+                    btn_Middle.Text = "&Y&e&s";
                     btn_Middle.DialogResult = (DialogResult)MsgResult.Yes;
                     //No Button
                     btn_Right.Visible = true;
@@ -133,7 +133,7 @@ namespace stockmanagement
                     btn_Left.Visible = false;
                     //Retry Button
                     btn_Middle.Visible = true;
-                    btn_Middle.Text = "Retry";
+                    btn_Middle.Text = "&R&e&t&r&y";
                     btn_Middle.DialogResult = (DialogResult)MsgResult.Retry;
                     //Cancel Button
                     btn_Right.Visible = true;
@@ -144,7 +144,7 @@ namespace stockmanagement
                 case MsgButtons.YesNoCancel:
                     //Yes Button
                     btn_Left.Visible = true;
-                    btn_Left.Text = "Yes";
+                    btn_Left.Text = "&Y&e&s";
                     btn_Left.DialogResult = (DialogResult)MsgResult.Yes;
                     //No Button
                     btn_Middle.Visible = true;
@@ -160,7 +160,7 @@ namespace stockmanagement
                 case MsgButtons.SendDontSendCancel:
                     //Send Button
                     btn_Left.Visible = true;
-                    btn_Left.Text = "Send";
+                    btn_Left.Text = "&S&e&n&d";
                     btn_Left.DialogResult = (DialogResult)MsgResult.Send;
                     //Dont Send Button
                     btn_Middle.Visible = true;
