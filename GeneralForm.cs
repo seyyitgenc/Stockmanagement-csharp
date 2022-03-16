@@ -11,6 +11,9 @@ namespace stockmanagement
 {
     public partial class GeneralForm : Form
     {
+        private bool mouseDown;
+        private Point lastLocation;
+
         private XElement xelement = XElement.Load(@"..\..\stockmanagement.xml");
         private string customerid = "";
         private int productid;
@@ -65,6 +68,39 @@ namespace stockmanagement
             LoginForm lf = new LoginForm();
             lf.Show();
             this.Hide();
+        }
+
+        //for closing form
+        void Btn_Close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //for minimizing form
+        void Btn_Minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        //for moving form
+        void Pnl_TitleBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                Location = new Point(
+                    (Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
+
+                Update();
+            }
+        }
+        void Pnl_TitleBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+        void Pnl_TitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
         }
 
         //button eventhandlers

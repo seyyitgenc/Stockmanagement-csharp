@@ -15,6 +15,9 @@ namespace stockmanagement
         private Label lbl_customer_title;
         private Label lbl_customer_price;
 
+        //datagridview field
+        private DataGridView customerdatagridview;
+
         //button fields
         private Button customer_mealadd_btn;
         public Button customer_update_btn;
@@ -50,7 +53,6 @@ namespace stockmanagement
                 Dock = DockStyle.Top,
                 CellBorderStyle = DataGridViewCellBorderStyle.Sunken,
                 GridColor = Color.Blue,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
                 AutoSize = true,
                 MultiSelect = false,
                 ReadOnly = true,
@@ -59,7 +61,8 @@ namespace stockmanagement
                 AllowUserToOrderColumns = false,
                 AllowUserToResizeRows = false,
                 BorderStyle = BorderStyle.None,
-                ColumnCount = 7,
+                ColumnCount = 6,
+                BackgroundColor = Color.Aquamarine,
             };
             DataGridViewRow rowcustomer = this.customerdatagridview.RowTemplate;
             rowcustomer.DefaultCellStyle.BackColor = Color.Tan;

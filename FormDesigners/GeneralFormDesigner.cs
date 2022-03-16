@@ -10,10 +10,6 @@ namespace stockmanagement
         public custompicturebox picboxuser;
         private PictureBox picboxhome;
 
-        //datagridview field
-        private DataGridView productdatagridview;
-        private DataGridView customerdatagridview;
-
         //panel fields
         private Panel pnl_titlebar;
         private Panel pnl_content;
@@ -32,6 +28,8 @@ namespace stockmanagement
         private Button show_customer_btn;
         private Button storage_prdct_btn;
         private Button outofstock_prdct_btn;
+        private Button btn_Close;
+        private Button btn_Minimize;
 
         private DataGridViewButtonColumn editbutton = new DataGridViewButtonColumn();
 
@@ -55,15 +53,20 @@ namespace stockmanagement
             RenderCustomer();//rendering customer controls
             RenderProductEditPanel();//rendering product edit controls
 
+            //panel customization
             pnl_titlebar = new Panel
             {
-                Size = new Size(100, 30),
-
+                Dock = DockStyle.Top,
+                BackColor = Color.CornflowerBlue,
+                MaximumSize = new Size(1000, 30),
             };
-            //main panel
+            pnl_content = new Panel
+            {
+                Dock = DockStyle.Fill,
+            };
             main_panel = new Panel
             {
-                Location = new Point(150, 50),
+                Dock = DockStyle.Fill,
                 BackColor = Color.Aquamarine,
                 Size = new Size(850, 650)
             };
@@ -83,6 +86,7 @@ namespace stockmanagement
                 AutoSize = true,
                 Dock = DockStyle.Top,
             };
+
             //line panel
             leftpaneldesign = new Panel
             {
@@ -103,32 +107,10 @@ namespace stockmanagement
             //upper panel 
             upper_panel = new Panel
             {
-                Location = new Point(0, 0),
                 Size = new Size(0, 50),
                 BackColor = Color.Crimson,
                 Dock = DockStyle.Top,
             };
-
-
-            //datagridview
-            productdatagridview = new DataGridView
-            {
-                Dock = DockStyle.Top,
-                CellBorderStyle = DataGridViewCellBorderStyle.Sunken,
-                GridColor = Color.Blue,
-                AutoSize = true,
-                MultiSelect = false,
-                ReadOnly = true,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                AllowUserToOrderColumns = false,
-                AllowUserToResizeRows = false,
-                ColumnCount = 8,
-                BorderStyle = BorderStyle.None,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-            };
-            DataGridViewRow row = this.productdatagridview.RowTemplate;
-            row.DefaultCellStyle.BackColor = Color.Tan;
 
             //datagridview edit button
             editbutton.Text = "Edit";
@@ -154,6 +136,36 @@ namespace stockmanagement
                 SizeMode = PictureBoxSizeMode.StretchImage,
             };
 
+            //button for exit
+            btn_Close = new Button
+            {
+                Text = "X",
+                Size = new Size(30, 30),
+                MaximumSize = new Size(30, 30),
+                FlatStyle = FlatStyle.Flat,
+                UseVisualStyleBackColor = false,
+                ForeColor = Color.Red,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point),
+                Dock = DockStyle.Right,
+            };
+            btn_Close.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 79, 95);
+            btn_Close.FlatAppearance.BorderSize = 0;
+
+            btn_Minimize = new Button
+            {
+                Text = "_",
+                Size = new Size(30, 30),
+                MaximumSize = new Size(30, 30),
+                FlatStyle = FlatStyle.Flat,
+                UseVisualStyleBackColor = false,
+                ForeColor = Color.Red,
+                Font = new Font("Microsoft Sans Serif", 15f, FontStyle.Bold, GraphicsUnit.Point),
+                Dock = DockStyle.Right,
+                TextAlign = ContentAlignment.MiddleCenter,
+            };
+            btn_Minimize.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 79, 95);
+            btn_Minimize.FlatAppearance.BorderSize = 0;
+
             //button for visualizing product panel buttons
             pnl_prdct_btn = new Button
             {
@@ -161,11 +173,12 @@ namespace stockmanagement
                 Location = new Point(0, 140),
                 Text = "Product Controls",
                 Font = new Font("Georgia", 10, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 BackColor = Color.BlueViolet,
                 ForeColor = Color.White,
                 Dock = DockStyle.Top,
             };
+            pnl_prdct_btn.FlatAppearance.BorderSize = 0;
             //show customer control panel button
             pnl_customer_btn = new Button
             {
@@ -173,11 +186,12 @@ namespace stockmanagement
                 Location = new Point(0, 320),
                 Text = "Customer Controls",
                 Font = new Font("Georgia", 10, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 BackColor = Color.BlueViolet,
                 ForeColor = Color.White,
                 Dock = DockStyle.Top
             };
+            pnl_customer_btn.FlatAppearance.BorderSize = 0;
             //button customization
 
             //show products
@@ -328,13 +342,23 @@ namespace stockmanagement
             this.MinimumSize = new Size(1000, 700);
             this.FormClosed += Handle_FormClosed;
             this.Load += Handle_Load;
+            this.Padding = new Padding(2, 0, 2, 2);
+            this.BackColor = Color.CornflowerBlue;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             //adding controls to the form
-            this.Controls.Add(left_panel);
-            this.Controls.Add(upper_panel);
-            this.Controls.Add(main_panel);
-            this.Controls.Add(customer_panel);
-            this.Controls.Add(product_addedit_panel);
+            this.Controls.Add(pnl_content);
+            this.Controls.Add(pnl_titlebar);
+
+            //adding controls to the title panel
+            pnl_titlebar.Controls.Add(btn_Minimize);
+            pnl_titlebar.Controls.Add(btn_Close);
+            //adding controls to the content panel
+            pnl_content.Controls.Add(main_panel);
+            pnl_content.Controls.Add(left_panel);
+            pnl_content.Controls.Add(upper_panel);
+            pnl_content.Controls.Add(customer_panel);
+            pnl_content.Controls.Add(product_addedit_panel);
 
             //left panel controls
             left_panel.Controls.Add(customer_controls_panel);
@@ -377,6 +401,13 @@ namespace stockmanagement
 
             show_prdct_btn.Click += Show_Prdct_Btn_Click;
             show_customer_btn.Click += Show_Customer_Btn_Click;//customer panel visible
+
+            //title bar designers
+            btn_Close.Click += Btn_Close_Click;
+            btn_Minimize.Click += Btn_Minimize_Click;
+            pnl_titlebar.MouseDown += Pnl_TitleBar_MouseDown;
+            pnl_titlebar.MouseUp += Pnl_TitleBar_MouseUp;
+            pnl_titlebar.MouseMove += Pnl_TitleBar_MouseMove;
 
             //datagridview events
             productdatagridview.CellContentClick += ProductDatagridview_CellContentClick;

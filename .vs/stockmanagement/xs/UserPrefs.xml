@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="PanelDesigners/CustomerPanelDesigner.cs">
     <Files>
-      <File FileName="PanelDesigners/ProductAddEditPanelDesigner.cs" Line="39" Column="35" />
-      <File FileName="FormDesigners/GeneralFormDesigner.cs" Line="56" Column="38" />
-      <File FileName="PanelDesigners/CustomerPanelDesigner.cs" Line="39" Column="28" />
+      <File FileName="FormDesigners/GeneralFormDesigner.cs" Line="392" Column="57" />
+      <File FileName="Program.cs" Line="11" Column="44" />
+      <File FileName="GeneralForm.cs" Line="79" Column="30" />
+      <File FileName="PanelDesigners/CustomerPanelDesigner.cs" Line="52" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="stockmanagement" expanded="True">
             <Node name="stockmanagement" expanded="True">
+              <Node name="CustomMessageBox" expanded="True" />
               <Node name="FormDesigners" expanded="True" />
               <Node name="PanelDesigners" expanded="True">
                 <Node name="CustomerPanelDesigner.cs" selected="True" />

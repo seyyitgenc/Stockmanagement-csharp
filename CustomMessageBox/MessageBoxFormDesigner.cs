@@ -41,7 +41,7 @@ namespace stockmanagement
             //form customization
             this.Size = new Size(600, 220);
             this.FormBorderStyle = FormBorderStyle.None;
-            this.Padding = new Padding(2);
+            this.Padding = new Padding(2,0,2,2);
             this.BackColor = Color.CornflowerBlue;
             //textbox customization
             txt_message.Dock = DockStyle.Fill;

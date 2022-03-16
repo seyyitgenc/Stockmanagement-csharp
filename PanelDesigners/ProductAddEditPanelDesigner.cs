@@ -1,6 +1,6 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System.Drawing;
+
 namespace stockmanagement
 {
     public partial class GeneralForm : Form
@@ -17,6 +17,9 @@ namespace stockmanagement
         private customtextbox txt_product_price = new customtextbox();
         private customtextbox txt_product_quantity = new customtextbox();
         private customtextbox txt_product_worth = new customtextbox();
+
+        //datagridview field
+        private DataGridView productdatagridview;
 
         //label fields
         private Label lbl_product_name;
@@ -71,6 +74,26 @@ namespace stockmanagement
             product_toggle_available.Size = new Size(60, 25);
             product_toggle_available.BackColor = Color.Transparent;
             product_toggle_available.Enabled = false;
+
+            //product datagridview
+            productdatagridview = new DataGridView
+            {
+                Dock = DockStyle.Top,
+                CellBorderStyle = DataGridViewCellBorderStyle.Sunken,
+                GridColor = Color.Blue,
+                AutoSize = true,
+                MultiSelect = false,
+                ReadOnly = true,
+                AllowUserToAddRows = false,
+                AllowUserToDeleteRows = false,
+                AllowUserToOrderColumns = false,
+                AllowUserToResizeRows = false,
+                ColumnCount = 8,
+                BorderStyle = BorderStyle.None,
+                BackgroundColor=Color.Aquamarine,
+            };
+            DataGridViewRow row = this.productdatagridview.RowTemplate;
+            row.DefaultCellStyle.BackColor = Color.Tan;
 
             lbl_product_name = new Label
             {
