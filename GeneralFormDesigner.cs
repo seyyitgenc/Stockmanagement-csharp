@@ -781,7 +781,7 @@ namespace stockmanagement
             //button Cick Events
             outofstock_prdct_btn.Click += Outofstock_Prdct_Btn_Click;//out of stock visible
             storage_prdct_btn.Click += Storage_Prdct_Btn_Click;//storage panel visible
-            pnl_prdct_btn.Click += pnl_prdct_btn_CLick;//product panel visible
+            pnl_prdct_btn.Click += Pnl_prdct_btn_CLick;//product panel visible
             pnl_customer_btn.Click += Pnl_Customer_Btn_Click;
             pnl_product_add_btn.Click += Pnl_Product_Add_Btn_Click;
             pnl_customer_add_btn.Click += Pnl_Customer_Add_Btn_Click;

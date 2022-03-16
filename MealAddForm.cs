@@ -13,7 +13,7 @@ namespace stockmanagement
         //fields
         private XElement xelement = XElement.Load(@"..\..\stockmanagement.xml");
         GeneralForm gf = new GeneralForm();
-        private int mealquantity = 0;
+        private int mealquantity;
         public string customer_id = "";
         private string meal_id = "";
         private string[] date;
@@ -35,7 +35,7 @@ namespace stockmanagement
         private Label lbl_date = new Label();
         private Label lbl_selecteddate = new Label();
         private Label lbl_datetime = new Label();
-        private Label lbl_customername = new Label();
+        private readonly Label lbl_customername = new Label();
         private Label lbl_customer = new Label();
 
 
@@ -199,7 +199,7 @@ namespace stockmanagement
             txtbox1.KeyPress += Txtbox1_KeyPress;
             customermeal_datagridview.CellContentClick += Customermeal_Datagridview_CellContentClick;
         }
-        void countmeals()
+        void Countmeals()
         {
             var updatecustomer = xelement.Descendants("customer").ToList();
 
@@ -219,7 +219,7 @@ namespace stockmanagement
             xelement.Save(@"../../stockmanagement.xml");
 
         }
-        void getmeals()
+        void Getmeals()
         {
             customermeal_datagridview.Rows.Clear();
             //populating datagridview with customer meals
@@ -263,7 +263,7 @@ namespace stockmanagement
                               };
             foreach (var x in getCustomer)
                 txtbox_customer.Texts = x.xmlname;
-            getmeals();
+            Getmeals();
         }
 
         void Handle_FormClosed(object sender, FormClosedEventArgs e)
@@ -318,8 +318,8 @@ namespace stockmanagement
                     }
                     xelement.Save(@"../../stockmanagement.xml");
                     MessageBox.Show("Element Succesfully Updated", "Update Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    getmeals();
-                    countmeals();
+                    Getmeals();
+                    Countmeals();
                 }
             }
             catch
@@ -349,8 +349,8 @@ namespace stockmanagement
                 btn_delete.Enabled = false;
                 txtbox1.Texts = "";
                 xelement.Save(@"../../stockmanagement.xml");
-                countmeals();
-                getmeals();
+                Countmeals();
+                Getmeals();
             }
         }
         //btn_delete event handler
@@ -375,8 +375,8 @@ namespace stockmanagement
                 btn_update.Enabled = false;
                 btn_delete.Enabled = false;
                 txtbox1.Texts = "";
-                getmeals();
-                countmeals();
+                Getmeals();
+                Countmeals();
 
             }
             catch

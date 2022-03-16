@@ -17,7 +17,7 @@ namespace stockmanagement
         XDocument xelement = XDocument.Load(@"..\..\stockmanagement.xml");
         GeneralForm gf = new GeneralForm();
         //get login parameters
-        void login()
+        void Login()
         {
             Boolean is_correct = false;
             //get user information
@@ -53,54 +53,54 @@ namespace stockmanagement
         void Cxt2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                login();
+                Login();
         }
         void Cxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                login();
+                Login();
         }
 
         //for username textbox enter event
-        void cxt_GotFocus(object sender, EventArgs e)
+        void Cxt_GotFocus(object sender, EventArgs e)
         {
             txt_username.Texts = "";
-            txt_username.GotFocus -= cxt_GotFocus;
+            txt_username.GotFocus -= Cxt_GotFocus;
             txt_username.ForeColor = Color.Black;
         }
         //for username textbox leave event
-        void cxt_LostFocus(object sender, EventArgs e)
+        void Cxt_LostFocus(object sender, EventArgs e)
         {
             if (txt_username.Texts == "")
             {
                 txt_username.Texts = "Username...";
                 txt_username.ForeColor = Color.DimGray;
-                txt_username.GotFocus += cxt_GotFocus;
+                txt_username.GotFocus += Cxt_GotFocus;
             }
         }
         //for password textbox enter event
-        void cxt2_GotFocus(object sender, EventArgs e)
+        void Cxt2_GotFocus(object sender, EventArgs e)
         {
             txt_password.Texts = "";
-            txt_password.GotFocus -= cxt2_GotFocus;
+            txt_password.GotFocus -= Cxt2_GotFocus;
             txt_password.ForeColor = Color.Black;
             txt_password.PasswordChar = true;
         }
         //for password textbox leave event
-        void cxt2_LostFocus(object sender, EventArgs e)
+        void Cxt2_LostFocus(object sender, EventArgs e)
         {
             if (txt_password.Texts == "")
             {
                 txt_password.Texts = "Password...";
                 txt_password.ForeColor = Color.DimGray;
-                txt_password.GotFocus += cxt2_GotFocus;
+                txt_password.GotFocus += Cxt2_GotFocus;
                 txt_password.PasswordChar = false;
             }
         }
         //login button
         void Btn_Login_Click(object sender, EventArgs e)
         {
-            login();
+            Login();
         }
         //login click end
 

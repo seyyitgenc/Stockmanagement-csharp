@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="GeneralForm.cs">
     <Files>
-      <File FileName="CustomMessageBox/MessageBoxForm.cs" Line="79" Column="24" />
+      <File FileName="CustomMessageBox/MessageBoxForm.cs" Line="79" Column="15" />
       <File FileName="CustomMessageBox/MessageBoxFormDesigner.cs" Line="45" Column="36" />
       <File FileName="Program.cs" Line="11" Column="44" />
-      <File FileName="GeneralForm.cs" Line="74" Column="51" />
+      <File FileName="GeneralForm.cs" Line="263" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,9 +16,6 @@
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

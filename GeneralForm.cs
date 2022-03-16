@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
-
 using static stockmanagement.MessageBoxForm;
 
 namespace stockmanagement
@@ -181,9 +180,9 @@ namespace stockmanagement
                 productdatagridview.Columns[6].HeaderText = "Quantity";
                 productdatagridview.Columns[7].HeaderText = "Available";
             }
-            catch
+            catch (Exception e)
             {
-                MessageBox.Show("Somethings Wrong!", "Error");
+                CustomMessageBox.Show(e.ToString(), "Error", MsgButtons.Ok, MsgIcon.error);
             }
         }
 
@@ -272,12 +271,12 @@ namespace stockmanagement
                         break;
                 }
                 xelement.Save(@"../../stockmanagement.xml");
-                MessageBox.Show("Update Succesfully Completed !", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessageBox.Show("Update Succesfully Completed !", "Update", MsgButtons.Ok, MsgIcon.information);
                 getCustomers();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Somethnig Went Wrong !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CustomMessageBox.Show(ex.ToString(), "Error", MsgButtons.Ok, MsgIcon.error);
             }
         }
 
@@ -302,8 +301,8 @@ namespace stockmanagement
                 {
                     if (Convert.ToInt32(x.Element("customer_loan").Value) > 0)
                     {
-                        DialogResult dialogResult = MessageBox.Show("This customer has " + Convert.ToInt32(x.Element("customer_loan").Value) + " TL loan.\nAre you sure want to delete this customer?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (dialogResult == DialogResult.Yes)
+                        MsgResult dialogResult = CustomMessageBox.Show("This customer has " + Convert.ToInt32(x.Element("customer_loan").Value) + " TL loan.\nAre you sure want to delete this customer?", "Warning", MsgButtons.YesNo, MsgIcon.error);
+                        if (dialogResult == MsgResult.Yes)
                         {
                             x.SetElementValue("customer_id", "");
                             x.SetElementValue("customer_name", "");
@@ -326,7 +325,7 @@ namespace stockmanagement
                         x.SetElementValue("customer_phonenumber", "");
                         x.SetElementValue("customer_loan", "");
                         x.Element("customer_price").SetAttributeValue("price", "");
-                        MessageBox.Show("Customer Succesfully Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CustomMessageBox.Show("Customer Succesfully Deleted", "Deleted", MsgButtons.Ok, MsgIcon.information);
                         customer_delete();
                         getCustomers();
                         break;
@@ -344,7 +343,7 @@ namespace stockmanagement
                             y.Element("meal_date").SetAttributeValue("date", "");
                         }
                     }
-                    MessageBox.Show("Customer Succesfully Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CustomMessageBox.Show("Customer Succesfully Deleted", "Deleted", MsgButtons.Ok, MsgIcon.information);
                     break;
                 }
             }
@@ -383,13 +382,13 @@ namespace stockmanagement
                       new XElement("customer_loan", 0),
                       new XElement("customer_price", new XAttribute("price", txt_customer_price.Texts))));
                 }
-                MessageBox.Show("Customer Succesfully Added", "Adding Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessageBox.Show("Customer Succesfully Added", "Adding Succesfull", MsgButtons.Ok, MsgIcon.information);
                 xelement.Save(@"../../stockmanagement.xml");
                 getCustomers();
             }
             catch
             {
-                MessageBox.Show("Fill The Blankets!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CustomMessageBox.Show("Fill The Blankets!", "Warning", MsgButtons.Ok, MsgIcon.warning);
             }
         }
         //show customer panel button
@@ -521,12 +520,12 @@ namespace stockmanagement
                 }
                 product_add_event_finished();
                 get_product();
-                MessageBox.Show("Product Succesfully Added", "Adding Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessageBox.Show("Product Succesfully Added", "Adding Succesfull", MsgButtons.Ok, MsgIcon.information);
                 xelement.Save(@"../../stockmanagement.xml");
             }
             catch
             {
-                MessageBox.Show("Fill The Blankets!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CustomMessageBox.Show("Fill The Blankets!", "Warning", MsgButtons.Ok, MsgIcon.warning);
             }
         }
         //product delete button
@@ -549,14 +548,14 @@ namespace stockmanagement
                     }
                 }
                 xelement.Save(@"../../stockmanagement.xml");
-                MessageBox.Show("Element Succesfully Deleted", "Delete Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessageBox.Show("Element Succesfully Deleted", "Delete Succesfull", MsgButtons.Ok, MsgIcon.information);
                 main_panel.Visible = true;
                 product_addedit_panel.Visible = false;
                 get_product();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CustomMessageBox.Show(ex.ToString(), "Error", MsgButtons.Ok, MsgIcon.error);
             }
         }
 
@@ -591,7 +590,7 @@ namespace stockmanagement
             }
             catch
             {
-                MessageBox.Show("Fill The Blankets!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CustomMessageBox.Show("Fill The Blankets!", "Error", MsgButtons.Ok, MsgIcon.error);
             }
         }
         void Pnl_Product_Add_Btn_Click(object sender, EventArgs e)

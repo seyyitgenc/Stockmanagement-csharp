@@ -107,11 +107,11 @@ namespace stockmanagement
             btn_login.Click += Btn_Login_Click;
 
             //event handlers for textboxs
-            txt_username.Enter += cxt_GotFocus;
-            txt_username.Leave += cxt_LostFocus;
+            txt_username.Enter += Cxt_GotFocus;
+            txt_username.Leave += Cxt_LostFocus;
             txt_username.KeyPress += Cxt_KeyPress;
-            txt_password.Enter += cxt2_GotFocus;
-            txt_password.Leave += cxt2_LostFocus;
+            txt_password.Enter += Cxt2_GotFocus;
+            txt_password.Leave += Cxt2_LostFocus;
             txt_password.KeyPress += Cxt2_KeyPress;
 
             //event handlers for form
