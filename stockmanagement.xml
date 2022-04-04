@@ -42,13 +42,13 @@
   <!-- product table-->
   <tbl_product>
     <product>
-      <product_id>1</product_id>
-      <product_name>yeni</product_name>
-      <product_category>Temizlik Malzemesi</product_category>
-      <product_type>Kilogram</product_type>
-      <product_quantity>321</product_quantity>
-      <product_price>32</product_price>
-      <product_available type="1" />
+      <product_id></product_id>
+      <product_name></product_name>
+      <product_category></product_category>
+      <product_type></product_type>
+      <product_quantity></product_quantity>
+      <product_price></product_price>
+      <product_available />
     </product>
     <product>
       <product_id>2</product_id>

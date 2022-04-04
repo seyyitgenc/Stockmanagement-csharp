@@ -79,8 +79,7 @@ namespace stockmanagement
             productdatagridview = new DataGridView
             {
                 Dock = DockStyle.Top,
-                CellBorderStyle = DataGridViewCellBorderStyle.Sunken,
-                GridColor = Color.Blue,
+                BorderStyle = BorderStyle.None,
                 AutoSize = true,
                 MultiSelect = false,
                 ReadOnly = true,
@@ -88,9 +87,10 @@ namespace stockmanagement
                 AllowUserToDeleteRows = false,
                 AllowUserToOrderColumns = false,
                 AllowUserToResizeRows = false,
-                ColumnCount = 8,
-                BorderStyle = BorderStyle.None,
-                BackgroundColor=Color.Aquamarine,
+                AllowUserToResizeColumns = false,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                ColumnCount = 6,
+                BackgroundColor = Color.CornflowerBlue,
             };
             DataGridViewRow row = this.productdatagridview.RowTemplate;
             row.DefaultCellStyle.BackColor = Color.Tan;
@@ -181,14 +181,15 @@ namespace stockmanagement
             {
                 Dock = DockStyle.None,
                 Size = new Size(100, 40),
-                BackColor = Color.DarkCyan,
-                ForeColor = Color.White,
+                BackColor = Color.SeaGreen,
+                ForeColor = Color.WhiteSmoke,
                 Location = new Point(245, 480),
                 Text = "Add",
                 Font = new Font("Georgia", 16, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
 
             };
+            product_add_btn.FlatAppearance.BorderSize = 0;
 
             product_edit_btn = new Button
             {
@@ -197,10 +198,12 @@ namespace stockmanagement
                 Location = new Point(375, 480),
                 Text = "Update",
                 Font = new Font("Georgia", 16, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
-                BackColor = Color.DarkCyan,
-                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.DodgerBlue,
+                ForeColor = Color.WhiteSmoke,
             };
+            product_edit_btn.FlatAppearance.BorderSize = 0;
+
             product_delete_btn = new Button
             {
                 Dock = DockStyle.None,
@@ -208,11 +211,11 @@ namespace stockmanagement
                 Location = new Point(505, 480),
                 Text = "Delete",
                 Font = new Font("Georgia", 16, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
-                BackColor = Color.DarkCyan,
-                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.IndianRed,
+                ForeColor = Color.WhiteSmoke,
             };
-
+            product_delete_btn.FlatAppearance.BorderSize = 0;
             //adding control to the product add edit panel
             product_addedit_panel.Controls.Add(cmbox_product_category);
             product_addedit_panel.Controls.Add(cmbox_product_type);

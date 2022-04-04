@@ -15,6 +15,7 @@ namespace stockmanagement
         private Point lastLocation;
 
         private XElement xelement = XElement.Load(@"..\..\stockmanagement.xml");
+
         private string customerid = "";
         private int productid;
         private int mealquantity;
@@ -28,9 +29,10 @@ namespace stockmanagement
         //form load event handler
         void Handle_Load(object sender, EventArgs e)
         {
-            customerdatagridview.Columns.Insert(0, editbutton);
-            productdatagridview.Columns.Insert(0, editbutton);
+            customerdatagridview.Columns.Insert(0, selectbutton);
+            productdatagridview.Columns.Insert(0, selectbutton);
             GetCustomers();
+            Get_product();
             customer_controls_panel.Visible = false;
             product_controls_panel.Visible = false;
             customer_panel.Visible = false;
@@ -60,6 +62,7 @@ namespace stockmanagement
                           };
             foreach (var x in gettype)
                 cmbox_product_type.Items.Add(x.xmltypename);
+            picboxuser.Image = Image.FromFile(@"../../images/userm.png");
         }
 
         //form closed event handler
@@ -118,35 +121,28 @@ namespace stockmanagement
         public void Get_product()
         {
             productdatagridview.Rows.Clear();
-            try
-            {
-                var product = from x in xelement.Descendants("product")
-                              where (string)x.Element("product_availabfle").Attribute("type") != null
-                              select new
-                              {
-                                  xmlid = x.Element("product_id").Value,
-                                  xmlname = x.Element("product_name").Value,
-                                  xmlcategory = x.Element("product_category").Value,
-                                  xmltype = x.Element("product_type").Value,
-                                  xmlprice = x.Element("product_price").Value,
-                                  xmlquantity = x.Element("product_quantity").Value,
-                                  xmlavailable = x.Element("product_available").Attribute("type").Value
-                              };
-                foreach (var x in product)
-                    productdatagridview.Rows.Add("", x.xmlid, x.xmlname, x.xmltype, x.xmlcategory, x.xmlprice, x.xmlquantity, x.xmlavailable);
-                productdatagridview.Columns[0].HeaderText = "Edit";
-                productdatagridview.Columns[1].HeaderText = "Id";
-                productdatagridview.Columns[2].HeaderText = "Name";
-                productdatagridview.Columns[3].HeaderText = "Type";
-                productdatagridview.Columns[4].HeaderText = "Category";
-                productdatagridview.Columns[5].HeaderText = "Price";
-                productdatagridview.Columns[6].HeaderText = "Quantity";
-                productdatagridview.Columns[7].HeaderText = "Available";
-            }
-            catch (Exception e)
-            {
-                CustomMessageBox.Show("Unexpected Behaviour. Here Is Your Crash Report : \n\n" + e, "Somethings Wrong!", MsgButtons.SendDontSendCancel, MsgIcon.error);
-            }
+            productdatagridview.Columns[0].HeaderText = "Select";
+            productdatagridview.Columns[1].HeaderText = "Id";
+            productdatagridview.Columns[2].HeaderText = "Name";
+            productdatagridview.Columns[3].HeaderText = "Type";
+            productdatagridview.Columns[4].HeaderText = "Category";
+            productdatagridview.Columns[5].HeaderText = "Price";
+            productdatagridview.Columns[6].HeaderText = "Quantity";
+            var product = from x in xelement.Descendants("product")
+                          where (string)x.Element("product_available").Attribute("type") != null
+                          select new
+                          {
+                              xmlid = x.Element("product_id").Value,
+                              xmlname = x.Element("product_name").Value,
+                              xmlcategory = x.Element("product_category").Value,
+                              xmltype = x.Element("product_type").Value,
+                              xmlprice = x.Element("product_price").Value,
+                              xmlquantity = x.Element("product_quantity").Value,
+                              xmlavailable = x.Element("product_available").Attribute("type").Value
+                          };
+            foreach (var x in product)
+                productdatagridview.Rows.Add("", x.xmlid, x.xmlname, x.xmltype, x.xmlcategory, x.xmlprice, x.xmlquantity);
+           
         }
 
         //populating customerdatdagridview 
@@ -186,11 +182,15 @@ namespace stockmanagement
         void Checkavailable(int data)
         {
             productdatagridview.Rows.Clear();
-            productdatagridview.Columns.Clear();
+            productdatagridview.Columns[0].HeaderText = "Select";
+            productdatagridview.Columns[1].HeaderText = "Id";
+            productdatagridview.Columns[2].HeaderText = "Name";
+            productdatagridview.Columns[3].HeaderText = "Type";
+            productdatagridview.Columns[4].HeaderText = "Category";
+            productdatagridview.Columns[5].HeaderText = "Price";
+            productdatagridview.Columns[6].HeaderText = "Quantity";
             try
             {
-                productdatagridview.Columns.Insert(0, editbutton);
-                productdatagridview.ColumnCount = 8;
                 var getProduct = from x in xelement.Descendants("product")
                                  where (string)x.Element("product_available").Attribute("type") == data.ToString()
                                  select new
@@ -204,17 +204,10 @@ namespace stockmanagement
                                      xmlavailable = x.Element("product_available").Attribute("type").Value
                                  };
                 foreach (var x in getProduct)
-                    productdatagridview.Rows.Add("", x.xmlid, x.xmlname, x.xmltype, x.xmlcategory, x.xmlprice, x.xmlquantity, x.xmlavailable);
+                    productdatagridview.Rows.Add("", x.xmlid, x.xmlname, x.xmltype, x.xmlcategory, x.xmlprice, x.xmlquantity);
                 Showgrid(productdatagridview);
                 main_panel.Visible = true;
-                productdatagridview.Columns[0].HeaderText = "Edit";
-                productdatagridview.Columns[1].HeaderText = "Id";
-                productdatagridview.Columns[2].HeaderText = "Name";
-                productdatagridview.Columns[3].HeaderText = "Type";
-                productdatagridview.Columns[4].HeaderText = "Category";
-                productdatagridview.Columns[5].HeaderText = "Price";
-                productdatagridview.Columns[6].HeaderText = "Quantity";
-                productdatagridview.Columns[7].HeaderText = "Available";
+
             }
             catch (Exception e)
             {
@@ -486,7 +479,7 @@ namespace stockmanagement
                 cmbox_product_category.SelectedItem = productdatagridview.Rows[index].Cells[4].Value.ToString();
 
                 //setting up available btn
-                if (Convert.ToInt32(productdatagridview.Rows[index].Cells[7].Value) == 1)
+                if (Convert.ToInt32(productdatagridview.Rows[index].Cells[6].Value) > 0)
                 {
                     product_toggle_available.Checked = true;
                     lbl_product_onoff.Text = "Available";

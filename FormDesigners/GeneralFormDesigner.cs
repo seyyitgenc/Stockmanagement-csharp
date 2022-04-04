@@ -31,7 +31,7 @@ namespace stockmanagement
         private Button btn_Close;
         private Button btn_Minimize;
 
-        private DataGridViewButtonColumn editbutton = new DataGridViewButtonColumn();
+        private DataGridViewButtonColumn selectbutton = new DataGridViewButtonColumn();
 
         //linklabel fields
         private LinkLabel lbl_expenses;
@@ -67,8 +67,7 @@ namespace stockmanagement
             main_panel = new Panel
             {
                 Dock = DockStyle.Fill,
-                BackColor = Color.Aquamarine,
-                Size = new Size(850, 650)
+                BackColor = Color.CornflowerBlue,
             };
             product_controls_panel = new Panel
             {
@@ -113,11 +112,9 @@ namespace stockmanagement
             };
 
             //datagridview edit button
-            editbutton.Text = "Edit";
-            editbutton.Name = "Edit";
-            editbutton.DataPropertyName = "Edit";
-            editbutton.UseColumnTextForButtonValue = true;
-            editbutton.FlatStyle = FlatStyle.Standard;
+            selectbutton.Text = "Edit";
+            selectbutton.UseColumnTextForButtonValue = true;
+            selectbutton.FlatStyle = FlatStyle.Flat;
 
             //picture box for picturing user image
             picboxuser = new custompicturebox
@@ -140,11 +137,11 @@ namespace stockmanagement
             btn_Close = new Button
             {
                 Text = "X",
-                Size = new Size(30, 30),
-                MaximumSize = new Size(30, 30),
+                Size = new Size(35, 30),
+                MaximumSize = new Size(35, 30),
                 FlatStyle = FlatStyle.Flat,
                 UseVisualStyleBackColor = false,
-                ForeColor = Color.Red,
+                ForeColor = Color.Black,
                 Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point),
                 Dock = DockStyle.Right,
             };
@@ -154,11 +151,11 @@ namespace stockmanagement
             btn_Minimize = new Button
             {
                 Text = "_",
-                Size = new Size(30, 30),
-                MaximumSize = new Size(30, 30),
+                Size = new Size(35, 30),
+                MaximumSize = new Size(35, 30),
                 FlatStyle = FlatStyle.Flat,
                 UseVisualStyleBackColor = false,
-                ForeColor = Color.Red,
+                ForeColor = Color.Black,
                 Font = new Font("Microsoft Sans Serif", 15f, FontStyle.Bold, GraphicsUnit.Point),
                 Dock = DockStyle.Right,
                 TextAlign = ContentAlignment.MiddleCenter,
@@ -202,11 +199,12 @@ namespace stockmanagement
                 Location = new Point(210, 440),
                 Text = "Show Products",
                 Font = new Font("Georgia", 10, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
                 Padding = new Padding(0, 0, 0, 5),
             };
+            show_prdct_btn.FlatAppearance.BorderSize = 0;
 
             //displays used products button
             show_customer_btn = new Button
@@ -216,10 +214,12 @@ namespace stockmanagement
                 Location = new Point(210, 440),
                 Text = "Customers",
                 Font = new Font("Georgia", 10, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
             };
+            show_customer_btn.FlatAppearance.BorderSize = 0;
+
             //showing out of stock products
             outofstock_prdct_btn = new Button
             {
@@ -227,10 +227,11 @@ namespace stockmanagement
                 Size = new Size(100, 40),
                 Text = "Show Out of Stock",
                 Font = new Font("Georgia", 10, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
             };
+            outofstock_prdct_btn.FlatAppearance.BorderSize = 0;
 
             //panel product add control
             pnl_product_add_btn = new Button
@@ -239,10 +240,11 @@ namespace stockmanagement
                 Size = new Size(100, 40),
                 Text = "Product Add",
                 Font = new Font("Georgia", 10, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
             };
+            pnl_product_add_btn.FlatAppearance.BorderSize = 0;
 
             //show what's in the storage button
             storage_prdct_btn = new Button
@@ -251,10 +253,12 @@ namespace stockmanagement
                 Size = new Size(100, 40),
                 Text = "Show Storage",
                 Font = new Font("Georgia", 10, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
             };
+            storage_prdct_btn.FlatAppearance.BorderSize = 0;
+
             //label control for header 
             lbl_home = new Label
             {

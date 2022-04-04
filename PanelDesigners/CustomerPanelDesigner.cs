@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
-
+using System.Drawing.Drawing2D;
 namespace stockmanagement
 {
     public partial class GeneralForm : Form
@@ -51,8 +51,6 @@ namespace stockmanagement
             customerdatagridview = new DataGridView
             {
                 Dock = DockStyle.Top,
-                CellBorderStyle = DataGridViewCellBorderStyle.Sunken,
-                GridColor = Color.Blue,
                 AutoSize = true,
                 MultiSelect = false,
                 ReadOnly = true,
@@ -60,9 +58,11 @@ namespace stockmanagement
                 AllowUserToDeleteRows = false,
                 AllowUserToOrderColumns = false,
                 AllowUserToResizeRows = false,
+                AllowUserToResizeColumns = false,
                 BorderStyle = BorderStyle.None,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
                 ColumnCount = 6,
-                BackgroundColor = Color.Aquamarine,
+                BackgroundColor = Color.CornflowerBlue,
             };
             DataGridViewRow rowcustomer = this.customerdatagridview.RowTemplate;
             rowcustomer.DefaultCellStyle.BackColor = Color.Tan;
@@ -137,48 +137,54 @@ namespace stockmanagement
                 BackColor = Color.Transparent,
                 ForeColor = Color.Black,
             };
-
             customer_mealadd_btn = new Button
             {
                 Text = "Add Meal",
                 Font = new Font("Georgia", 16, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 Size = new Size(140, 40),
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
                 Location = new Point(155, 480),
             };
+            customer_mealadd_btn.FlatAppearance.BorderSize = 0;
             customer_update_btn = new Button
             {
                 Text = "Update",
                 Font = new Font("Georgia", 16, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 Size = new Size(100, 40),
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
                 Location = new Point(335, 480),
             };
+            customer_update_btn.FlatAppearance.BorderSize = 0;
+
             customer_delete_btn = new Button
             {
                 Text = "Delete",
                 Font = new Font("Georgia", 16, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 Size = new Size(100, 40),
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
                 Location = new Point(465, 480),
             };
+            customer_delete_btn.FlatAppearance.BorderSize = 0;
+
             customer_add_btn = new Button
             {
                 Text = "Add Customer",
                 Font = new Font("Georgia", 16, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 AutoSize = true,
                 Size = new Size(140, 40),
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
                 Location = new Point(605, 480),
             };
+            customer_add_btn.FlatAppearance.BorderSize = 0;
+
             pnl_customer_add_btn = new Button
             {
                 Dock = DockStyle.Top,
@@ -186,11 +192,12 @@ namespace stockmanagement
                 Location = new Point(210, 440),
                 Text = "Add Customer",
                 Font = new Font("Georgia", 10, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Popup,
+                FlatStyle = FlatStyle.Flat,
                 BackColor = Color.DarkCyan,
                 ForeColor = Color.White,
                 Padding = new Padding(0, 0, 0, 5),
             };
+            pnl_customer_add_btn.FlatAppearance.BorderSize = 0;
             txt_customer_loan.Enabled = false;
             txt_customer_meal_quantity.Enabled = false;
 
