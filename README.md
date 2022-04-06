@@ -16,10 +16,10 @@ This Project Use ***XML*** Based Data
 
 ## Main Form (still have lots of things to do)
 >- **Contains admin controls**
-    >- Add/Update/Delete Product
-    >- Add/Update/Delete Customer
-    >- Add/Update/Delete Meal
-    >- Visualizing Products/Customers/Meals with datagridview
+    - Add/Update/Delete Product
+    - Add/Update/Delete Customer
+    - Add/Update/Delete Meal
+    - Visualizing Products/Customers/Meals with datagridview
 
 ## Task
 >- [x] Admin Controls (Mostly Done)
