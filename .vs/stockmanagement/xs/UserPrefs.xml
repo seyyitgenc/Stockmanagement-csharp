@@ -1,20 +1,14 @@
 ﻿<Properties StartupConfiguration="{6A79C752-4045-416D-8300-9F8ECA4D79EE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="FormDesigners/GeneralFormDesigner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="GeneralForm.cs" Line="33" Column="52" />
-      <File FileName="PanelDesigners/ProductAddEditPanelDesigner.cs" Line="15" Column="46" />
-      <File FileName="PanelDesigners/CustomerPanelDesigner.cs" Line="59" Column="49" />
-      <File FileName="FormDesigners/GeneralFormDesigner.cs" Line="425" Column="39" />
+      <File FileName="Program.cs" Line="11" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="stockmanagement" expanded="True">
             <Node name="stockmanagement" expanded="True">
-              <Node name="FormDesigners" expanded="True">
-                <Node name="GeneralFormDesigner.cs" selected="True" />
-              </Node>
-              <Node name="PanelDesigners" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -25,12 +19,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.stockmanagement PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="../../../ProductEditForm.cs" line="297" offsetX="458" offsetY="5328" expression="imageurledit" liveUpdate="False" />
-    <Watch file="../../../GeneralForm.cs" line="640" offsetX="383" offsetY="10863" expression="index" liveUpdate="True" />
-    <Watch file="../../../CustomControls/custombtn.cs" line="51" offsetX="316" offsetY="750" expression="value" liveUpdate="False" />
-    <Watch file="../../../CustomMessageBox/MessageBoxForm.cs" line="42" offsetX="407" offsetY="615" expression="rowcount" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

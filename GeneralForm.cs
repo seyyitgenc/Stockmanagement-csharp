@@ -6,6 +6,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
 using static stockmanagement.MessageBoxForm;
+using System.Drawing.Drawing2D;
 
 namespace stockmanagement
 {
@@ -142,7 +143,7 @@ namespace stockmanagement
                           };
             foreach (var x in product)
                 productdatagridview.Rows.Add("", x.xmlid, x.xmlname, x.xmltype, x.xmlcategory, x.xmlprice, x.xmlquantity);
-           
+
         }
 
         //populating customerdatdagridview 
