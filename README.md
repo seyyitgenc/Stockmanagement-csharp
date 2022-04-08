@@ -21,7 +21,7 @@ This Project Use ***XML*** Based Data
     >- Add/Update/Delete Meal
     >- Visualizing Products/Customers/Meals with datagridview
 
-## Task
+## Tasks
 >- [x] Admin Controls (Mostly Done)
 >- [x] User Login Panel
 >- [ ] General Design (Mostly Done)
@@ -30,7 +30,7 @@ This Project Use ***XML*** Based Data
 >- [ ] Income Graphically Visualized
 >- [ ] Expenses Graphically Visualized
 
-## Images of Project
+## Screenshots of Project
 
 >- ### Login Form
 > <img src="https://i.ibb.co/q97ZFnt/login.png">
